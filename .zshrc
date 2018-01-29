@@ -20,7 +20,7 @@ alias gcm="git commit -m"
 alias gaa="git add ."
 alias gsl="git stash list"
 alias gb="git branch"
-
+alias sagu="sudo apt-get update && sudo apt-get -y upgrade && sudo apt-get -y dist-upgrade && sudo apt-get -y autoremove && sudo apt-get -y autoclean"
 #promt 予備
 ##############################################################
 #parse-git-branch()
@@ -200,5 +200,9 @@ kterm*|xterm*)
 esac
 
 # Golang
-export GOPATH=${HOME}/work
+export GOPATH=${HOME}/.go
 export PATH="${PATH}:${GOPATH}/bin:/usr/local/go/bin"
+
+export NVM_DIR="$HOME/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
