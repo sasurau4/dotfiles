@@ -1,0 +1,15 @@
+[submodule ".vim/pack/mypackage/start/indetLine"]
+	path = .vim/pack/mypackage/start/indetLine
+	url = https://github.com/Yggdroot/indentLine.git
+[submodule ".vim/pack/mypackage/start/lightline"]
+	path = .vim/pack/mypackage/start/lightline
+	url = https://github.com/itchyny/lightline.vim.git
+[submodule ".vim/pack/mypackage/start/neocomplete"]
+	path = .vim/pack/mypackage/start/neocomplete
+	url = https://github.com/Shougo/neocomplete.vim.git
+[submodule ".vim/pack/mypackage/start/neosnippet-snippets"]
+	path = .vim/pack/mypackage/start/neosnippet-snippets
+	url = https://github.com/Shougo/neosnippet-snippets.git
+[submodule ".vim/pack/mypackage/start/neosnippet"]
+	path = .vim/pack/mypackage/start/neosnippet
+	url = https://github.com/Shougo/neosnippet.vim.git
