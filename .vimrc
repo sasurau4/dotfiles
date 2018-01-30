@@ -28,6 +28,8 @@ set showmatch
 set laststatus=2
 "コマンドラインの補完
 set wildmode=list:longest
+"カーソルの位置表示を行う
+set ruler
 "折り返し時に表示行単位での移動できるようにする
 nnoremap j gj
 nnoremap k gk
@@ -62,7 +64,7 @@ set hlsearch
 "ESC連打でハイライト解除
 nmap <Esc><Esc> :nohlsearch<CR><Esc>
 "クリップボード連携
-set clipboard=unnamedplus
+set clipboard=unnamedplus,unnamed
 
 "syntax highlight
 syntax enable
@@ -72,3 +74,5 @@ colorscheme solarized
 "mode control
 "インサートモードから抜けると自動的にIMEをオフにする
 set iminsert=2
+
+filetype indent on
