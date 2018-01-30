@@ -1,6 +1,8 @@
 "setting
 "文字コードをUFT-8に設定
 set fenc=utf-8
+"□や○文字が崩れる問題を解決
+set ambiwidth=double
 "バックアップファイルを作らない
 set nobackup
 "スワップファイルを作らない
@@ -76,3 +78,15 @@ colorscheme solarized
 set iminsert=2
 
 filetype indent on
+
+" 括弧の対応関係を一瞬表示する
+set showmatch 
+" enable filetype plugin
+filetype plugin on
+" Vimの「%」を拡張する
+source $VIMRUNTIME/macros/matchit.vim 
+
+" コマンドモードの補完
+set wildmenu wildmode=list:longest,full
+" 保存するコマンド履歴の数
+set history=5000 
