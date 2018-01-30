@@ -42,6 +42,10 @@ set expandtab
 set tabstop=2
 "行頭でのTab文字の表示幅
 set shiftwidth=2
+"indent
+set autoindent
+"insert space instead of tab
+set expandtab
 
 
 "検索系
@@ -59,3 +63,12 @@ set hlsearch
 nmap <Esc><Esc> :nohlsearch<CR><Esc>
 "クリップボード連携
 set clipboard=unnamedplus
+
+"syntax highlight
+syntax enable
+set background=dark
+colorscheme solarized
+
+"mode control
+"インサートモードから抜けると自動的にIMEをオフにする
+set iminsert=2
