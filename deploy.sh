@@ -3,6 +3,9 @@
 DOT_DIRECTORY="${HOME}/dotfiles"
 cd ${DOT_DIRECTORY}
 
+git submodule init
+git submodule update
+
 for f in .??*
 do
   # 無視したいファイルやディレクトリはこんな風に追加してね
