@@ -21,29 +21,25 @@ alias gaa="git add ."
 alias gsl="git stash list"
 alias gb="git branch"
 alias sagu="sudo apt-get update && sudo apt-get -y upgrade && sudo apt-get -y dist-upgrade && sudo apt-get -y autoremove && sudo apt-get -y autoclean"
-#promt 予備
-##############################################################
-#parse-git-branch()
-#{
-#    local branch=$(git rev-parse --abbrev-ref HEAD 2>/dev/null)
-#    if [ -n "${branch}" ]; then
-#        [ "${branch}" = "HEAD" ] && local branch=$(git rev-parse --short HEAD 2>/dev/null)
-#        local statusis="$(git status --porcelain 2>/dev/null)"
-#        echo -n " on %F{6}${branch}%f"
-#        [ -n "${statusis}" ] && echo -n "%F{3}*%f"
-#    fi
-#}
-#PROMPT="%F{6}%n%f at %F{6}%m%f in %F{6}%c%f$(parse-git-branch)
-#%# "
-#################################################################
 
+# prompt
+# 1行表示
+# PROMPT="%~ %# "
+# 2行表示
+PROMPT="%{${fg[green]}%}[%n@%m]%{${reset_color}%} %~
+%# "
 
-# set terminal title including current directory
-#
-precmd() {
-    echo -ne "\033]0;${USER}@${HOST}\007"
-}
-
+# git設定
+RPROMPT="%{${fg[blue]}%}[%~]%{${reset_color}%}"
+autoload -Uz vcs_info
+setopt prompt_subst
+zstyle ':vcs_info:git:*' check-for-changes true
+zstyle ':vcs_info:git:*' stagedstr "%F{yellow}!"
+zstyle ':vcs_info:git:*' unstagedstr "%F{red}+"
+zstyle ':vcs_info:*' formats "%F{green}%c%u[%b]%f"
+zstyle ':vcs_info:*' actionformats '[%b|%a]'
+precmd () { vcs_info }
+RPROMPT=$RPROMPT'${vcs_info_msg_0_}'
 
 #HISTORY
 HISTFILE=$HOME/dotfiles/.zsh_history
@@ -86,24 +82,9 @@ export LANG=ja_JP.UTF-8
 #
 # set prompt
 #
-autoload colors
+autoload -Uz colors
 colors
-case ${UID} in
-0)
-  PROMPT="%B%{${fg[red]}%}%/#%{${reset_color}%}%b "
-  PROMPT2="%B%{${fg[red]}%}%_#%{${reset_color}%}%b "
-  SPROMPT="%B%{${fg[red]}%}%r is correct? [n,y,a,e]:%{${reset_color}%}%b "
-  [ -n "${REMOTEHOST}${SSH_CONNECTION}" ] && 
-    PROMPT="%{${fg[white]}%}${HOST%%.*} ${PROMPT}"
-  ;;
-*)
-  PROMPT="%{${fg[red]}%}%/%%%{${reset_color}%} "
-  PROMPT2="%{${fg[red]}%}%_%%%{${reset_color}%} "
-  SPROMPT="%{${fg[red]}%}%r is correct? [n,y,a,e]:%{${reset_color}%} "
-  [ -n "${REMOTEHOST}${SSH_CONNECTION}" ] && 
-    PROMPT="%{${fg[white]}%}${HOST%%.*} ${PROMPT}"
-  ;;
-esac
+
 # auto change directory
 #
 setopt auto_cd
@@ -168,35 +149,18 @@ alias df="df -h"
 
 alias su="su -l"
 
-## terminal configuration
-#
-eval $(gdircolors $HOME/.dircolors)
-export LSCOLORS=gxfxcxdxbxegedabagacad
-
-if [ -f ~/.dircolors ]; then
-    if type dircolors > /dev/null 2>&1; then
-        eval $(dircolors ~/.dircolors)
-    elif type gdircolors > /dev/null 2>&1; then
-        eval $(gdircolors ~/.dircolors)
-    fi
-fi
-
-if [ -n "$LS_COLORS" ]; then
-    zstyle ':completion:*' list-colors ${(s.:.)LS_COLORS}
-fi
-
-# set terminal title including current directory
-#
-case "${TERM}" in
-kterm*|xterm*)
-  precmd() {
-    echo -ne "\033]0;${USER}@${HOST%%.*}:${PWD}\007"
-  }
-  export LSCOLORS=exfxcxdxbxegedabagacad
-  export LS_COLORS='di=34:ln=35:so=32:pi=33:ex=31:bd=46;34:cd=43;34:su=41;30:sg=46;30:tw=42;30:ow=43;30'
-  zstyle ':completion:*' list-colors \
-    'di=34' 'ln=35' 'so=32' 'ex=31' 'bd=46;34' 'cd=43;34'
-  ;;
+########################################
+# OS 別の設定
+case ${OSTYPE} in
+    darwin*)
+        #Mac用の設定
+        export CLICOLOR=1
+        alias ls='ls -G -F'
+        ;;
+    linux*)
+        #Linux用の設定
+        alias ls='ls -F --color=auto'
+        ;;
 esac
 
 # Golang
