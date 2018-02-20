@@ -128,3 +128,9 @@ inoremap <expr><BS> neocomplete#smart_close_popup()."<C-h>"
 imap <expr><CR> neosnippet#expandable() ? "<Plug>(neosnippet_expand_or_jump)" : pumvisible() ? "<C-y>" : "<CR>"
 " タブキーで補完候補の選択. スニペット内のジャンプもタブキーでジャンプ・・・・・・③
 imap <expr><TAB> pumvisible() ? "<C-n>" : neosnippet#jumpable() ? "<Plug>(neosnippet_expand_or_jump)" : "<TAB>"
+
+"settings for denite
+let g:python3_host_prog = expand('/usr/bin/python3')
+
+"settings for NERDTree
+let NERDTreeShowHidden=1
