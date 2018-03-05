@@ -45,3 +45,5 @@ alias gc="git checkout"
 alias gaa="git add *"
 alias gb="git branch"
 alias gbb="git branch -b"
+
+export PATH="$HOME/.cargo/bin:$PATH"
