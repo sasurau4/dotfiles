@@ -134,3 +134,9 @@ let g:python3_host_prog = expand('/usr/bin/python3')
 
 "settings for NERDTree
 let NERDTreeShowHidden=1
+
+"settings for vim-javascript
+let g:javascript_plugin_jsdoc = 1
+
+"setting for vim-jsx-pretty
+let g:vim_jsx_pretty_colorful_config = 1

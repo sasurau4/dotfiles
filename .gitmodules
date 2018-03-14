@@ -19,3 +19,9 @@
 [submodule ".vim/pack/mypackage/start/nerdtree"]
 	path = .vim/pack/mypackage/start/nerdtree
 	url = https://github.com/scrooloose/nerdtree
+[submodule ".vim/pack/mypackage/start/vim-javascript"]
+  path = .vim/pack/mypackage/start/vim-javascript
+  url = https://github.com/pangloss/vim-javascript.git
+[submodule ".vim/pack/mypackage/start/vim-jsx-pretty"]
+  path = .vim/pack/mypackage/start/vim-jsx-pretty
+  url = https://github.com/MaxMEllon/vim-jsx-pretty.git
