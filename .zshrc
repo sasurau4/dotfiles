@@ -176,3 +176,8 @@ export NVM_DIR="$HOME/.nvm"
 
 # Rust
 export PATH="${PATH}:${HOME}/.cargo/bin"
+
+#EXERCISM
+if [ -f ~/.config/exercism/exercism_completion.zsh ]; then
+  . ~/.config/exercism/exercism_completion.zsh
+fi
