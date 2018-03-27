@@ -133,7 +133,10 @@ imap <expr><TAB> pumvisible() ? "<C-n>" : neosnippet#jumpable() ? "<Plug>(neosni
 let g:python3_host_prog = expand('/usr/bin/python3')
 
 "settings for NERDTree
-let NERDTreeShowHidden=1
+let NERDTreeShowHidden= 1
+autocmd vimenter * NERDTree
+noremap <Space>n :NERDTree<CR>
+autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
 
 "settings for vim-javascript
 let g:javascript_plugin_jsdoc = 1
