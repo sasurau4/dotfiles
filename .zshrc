@@ -181,3 +181,14 @@ export PATH="${PATH}:${HOME}/.cargo/bin"
 if [ -f ~/.config/exercism/exercism_completion.zsh ]; then
   . ~/.config/exercism/exercism_completion.zsh
 fi
+
+# Mac OS for work
+if [ "$(uname)" = "Darwin" ]; then
+  export PATH="${PATH}:${HOME}/homebrew/bin"
+  alias vim=${HOME}/homebrew/bin/vim
+  alias atom="/Applications/Atom.app/Contents/Resources/app/atom.sh"
+  alias android-studio="open -a /Applications/Android\ Studio.app/"
+  export ANDROID_HOME=$HOME/Library/Android/sdk
+  export PATH=$PATH:$ANDROID_HOME/tools
+  export PATH=$PATH:$ANDROID_HOME/platform-tools
+fi

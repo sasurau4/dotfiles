@@ -103,10 +103,12 @@ let g:lightline = {
       \ 'colorscheme': 'solarized',
       \ 'active': {
       \   'left': [ [ 'mode', 'paste' ],
-      \             [ 'gitbranch', 'readonly', 'filename', 'modified' ] ]
+      \             [ 'gitbranch', 'readonly', 'filename', 'modified' ], 
+      \             ['ale'] ]
       \ },
       \ 'component_function': {
-      \   'gitbranch': 'fugitive#head'
+      \   'gitbranch': 'fugitive#head',
+      \   'ale': 'ALEStatus'
       \ },
       \ }
 
@@ -148,3 +150,18 @@ let g:vim_jsx_pretty_colorful_config = 1
 "    au FileType javascript setlocal foldmethod=syntax
 "augroup END
 
+" Setting for Ale
+let g:ale_fixers = {
+\   'javascript': ['eslint', 'prettier'],
+\}
+let g:ale_javascript_prettier_options = '--single-quote'
+let g:ale_javascript_prettier_use_local_config = 1
+
+" Set this setting in vimrc if you want to fix files automatically on save.
+" This is off by default.
+let g:ale_fix_on_save = 1
+let g:ale_sign_column_always = 1
+
+function! ALEStatus()
+  return ALEGetStatusLine()
+endfunction

@@ -25,3 +25,6 @@
 [submodule ".vim/pack/mypackage/start/vim-jsx-pretty"]
   path = .vim/pack/mypackage/start/vim-jsx-pretty
   url = https://github.com/MaxMEllon/vim-jsx-pretty.git
+[submodule ".vim/pack/mypackage/start/vim-prettier"]
+  path = .vim/pack/mypackage/start/vim-prettier
+  url = https://github.com/MaxMEllon/vim-prettier.git
