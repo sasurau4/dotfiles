@@ -31,3 +31,9 @@
 [submodule ".vim/pack/mypackage/start/lightline-ale"]
 	path = .vim/pack/mypackage/start/lightline-ale
 	url = https://github.com/maximbaz/lightline-ale.git
+[submodule ".vim/pack/mypackage/start/vim-css-color"]
+	path = .vim/pack/mypackage/start/vim-css-color
+	url = https://github.com/ap/vim-css-color
+[submodule ".vim/pack/mypackage/start/vCoolor.vim"]
+	path = .vim/pack/mypackage/start/vCoolor.vim
+	url = https://github.com/KabbAmine/vCoolor.vim.git
