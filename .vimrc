@@ -151,6 +151,10 @@ autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isT
 
 "settings for vim-javascript
 let g:javascript_plugin_jsdoc = 1
+augroup javascript_folding
+    au!
+    au FileType javascript setlocal foldmethod=syntax
+augroup END
 
 "setting for vim-jsx-pretty
 let g:vim_jsx_pretty_colorful_config = 1
