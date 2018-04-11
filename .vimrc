@@ -103,11 +103,22 @@ let g:lightline = {
       \ 'colorscheme': 'solarized',
       \ 'active': {
       \   'left': [ [ 'mode', 'paste' ],
-      \             [ 'gitbranch', 'readonly', 'filename', 'modified' ] ]
+      \             [ 'gitbranch', 'readonly', 'filename', 'modified' ], 
+      \             [ 'linter_checking', 'linter_errors', 'linter_warnings', 'linter_ok' ] ]
       \ },
       \ 'component_function': {
-      \   'gitbranch': 'fugitive#head'
+      \   'gitbranch': 'fugitive#head',
       \ },
+      \ 'component_expand': {
+      \   'linter_checking': 'lightline#ale#checking',
+      \   'linter_warnings': 'lightline#ale#warnings',
+      \   'linter_errors': 'lightline#ale#errors',
+      \   'linter_ok': 'lightline#ale#ok',
+      \ }, 
+      \ 'component_type': {
+      \   'linter_warnings': 'warning',
+      \   'linter_errors': 'error',
+      \ }
       \ }
 
 "settings for neocomlete & neosnippet & neosnippet-snippets
@@ -140,11 +151,28 @@ autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isT
 
 "settings for vim-javascript
 let g:javascript_plugin_jsdoc = 1
+augroup javascript_folding
+    au!
+    au FileType javascript setlocal foldmethod=syntax
+augroup END
 
 "setting for vim-jsx-pretty
 let g:vim_jsx_pretty_colorful_config = 1
-"augroup javascript_folding
-"    au!
-"    au FileType javascript setlocal foldmethod=syntax
-"augroup END
 
+" Setting for Ale
+let g:ale_fixers = {
+\   'javascript': ['eslint', 'prettier'],
+\}
+let g:ale_javascript_prettier_options = '--single-quote'
+let g:ale_javascript_prettier_use_local_config = 1
+
+" Set this setting in vimrc if you want to fix files automatically on save.
+" This is off by default.
+let g:ale_fix_on_save = 1
+let g:ale_sign_column_always = 1
+nmap <silent> <C-k> <Plug>(ale_previous_wrap)
+nmap <silent> <C-j> <Plug>(ale_next_wrap)
+
+" Settings for lightline-ale plugin
+let g:lightline#ale#indicator_warnings = "Warning:"
+let g:lightline#ale#indicator_errors = "Error:"

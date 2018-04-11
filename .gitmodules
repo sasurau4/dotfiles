@@ -1,4 +1,4 @@
-[submodule ".vim/pack/mypackage/start/indetLine"]
+	[submodule ".vim/pack/mypackage/start/indetLine"]
 	path = .vim/pack/mypackage/start/indetLine
 	url = https://github.com/Yggdroot/indentLine.git
 [submodule ".vim/pack/mypackage/start/lightline"]
@@ -25,3 +25,15 @@
 [submodule ".vim/pack/mypackage/start/vim-jsx-pretty"]
   path = .vim/pack/mypackage/start/vim-jsx-pretty
   url = https://github.com/MaxMEllon/vim-jsx-pretty.git
+[submodule ".vim/pack/mypackage/start/ale"]
+	path = .vim/pack/mypackage/start/ale
+	url = https://github.com/w0rp/ale.git
+[submodule ".vim/pack/mypackage/start/lightline-ale"]
+	path = .vim/pack/mypackage/start/lightline-ale
+	url = https://github.com/maximbaz/lightline-ale.git
+[submodule ".vim/pack/mypackage/start/vim-css-color"]
+	path = .vim/pack/mypackage/start/vim-css-color
+	url = https://github.com/ap/vim-css-color
+[submodule ".vim/pack/mypackage/start/vCoolor.vim"]
+	path = .vim/pack/mypackage/start/vCoolor.vim
+	url = https://github.com/KabbAmine/vCoolor.vim.git

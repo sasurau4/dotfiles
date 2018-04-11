@@ -27,9 +27,6 @@ export PATH=$PATH:$GOROOT/bin:$GOPATH/bin
 
 
 
-#contents scraper env
-eval $(docker-machine env default)
-
 # Shortcuts
 alias d="cd ~/Documents/Dropbox"
 alias dl="cd ~/Downloads"
@@ -47,3 +44,9 @@ alias gb="git branch"
 alias gbb="git branch -b"
 
 export PATH="$HOME/.cargo/bin:$PATH"
+
+if [ "$(uname)" = "Darwin" ]; then
+  export PATH="${PATH}:${HOME}/homebrew/bin"
+  export SHELL=${HOME}/homebrew/bin/zsh
+  exec ${HOME}/homebrew/bin/zsh -l
+fi
