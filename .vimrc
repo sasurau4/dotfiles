@@ -104,12 +104,21 @@ let g:lightline = {
       \ 'active': {
       \   'left': [ [ 'mode', 'paste' ],
       \             [ 'gitbranch', 'readonly', 'filename', 'modified' ], 
-      \             ['ale'] ]
+      \             [ 'linter_checking', 'linter_errors', 'linter_warnings', 'linter_ok' ] ]
       \ },
       \ 'component_function': {
       \   'gitbranch': 'fugitive#head',
-      \   'ale': 'ALEStatus'
       \ },
+      \ 'component_expand': {
+      \   'linter_checking': 'lightline#ale#checking',
+      \   'linter_warnings': 'lightline#ale#warnings',
+      \   'linter_errors': 'lightline#ale#errors',
+      \   'linter_ok': 'lightline#ale#ok',
+      \ }, 
+      \ 'component_type': {
+      \   'linter_warnings': 'warning',
+      \   'linter_errors': 'error',
+      \ }
       \ }
 
 "settings for neocomlete & neosnippet & neosnippet-snippets
@@ -145,10 +154,6 @@ let g:javascript_plugin_jsdoc = 1
 
 "setting for vim-jsx-pretty
 let g:vim_jsx_pretty_colorful_config = 1
-"augroup javascript_folding
-"    au!
-"    au FileType javascript setlocal foldmethod=syntax
-"augroup END
 
 " Setting for Ale
 let g:ale_fixers = {
@@ -161,7 +166,9 @@ let g:ale_javascript_prettier_use_local_config = 1
 " This is off by default.
 let g:ale_fix_on_save = 1
 let g:ale_sign_column_always = 1
+nmap <silent> <C-k> <Plug>(ale_previous_wrap)
+nmap <silent> <C-j> <Plug>(ale_next_wrap)
 
-function! ALEStatus()
-  return ALEGetStatusLine()
-endfunction
+" Settings for lightline-ale plugin
+let g:lightline#ale#indicator_warnings = "Warning:"
+let g:lightline#ale#indicator_errors = "Error:"

@@ -1,4 +1,4 @@
-[submodule ".vim/pack/mypackage/start/indetLine"]
+	[submodule ".vim/pack/mypackage/start/indetLine"]
 	path = .vim/pack/mypackage/start/indetLine
 	url = https://github.com/Yggdroot/indentLine.git
 [submodule ".vim/pack/mypackage/start/lightline"]
@@ -28,3 +28,6 @@
 [submodule ".vim/pack/mypackage/start/ale"]
 	path = .vim/pack/mypackage/start/ale
 	url = https://github.com/w0rp/ale.git
+[submodule ".vim/pack/mypackage/start/lightline-ale"]
+	path = .vim/pack/mypackage/start/lightline-ale
+	url = https://github.com/maximbaz/lightline-ale.git
