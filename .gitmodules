@@ -49,6 +49,7 @@
 [submodule ".vim/icons/nerd-fonts"]
 	path = .vim/icons/nerd-fonts
 	url = https://github.com/ryanoasis/nerd-fonts.git
+  ignore = dirty
 [submodule ".vim/pack/mypackage/start/vim-nerdtree-syntax-highlight"]
 	path = .vim/pack/mypackage/start/vim-nerdtree-syntax-highlight
 	url = https://github.com/tiagofumo/vim-nerdtree-syntax-highlight.git
