@@ -18,8 +18,6 @@ set showcmd
 "見た目系
 "行番号を表示
 set number
-"現在の行を強調表示
-set cursorline
 "行末の1文字先までカーソルを移動できるように
 set virtualedit=onemore
 "インデントはスマートインデント
@@ -108,6 +106,9 @@ let g:lightline = {
       \ },
       \ 'component_function': {
       \   'gitbranch': 'fugitive#head',
+      \   'filename': 'MyFileName',
+      \   'filetype': 'MyFiletype',
+      \   'fileformat': 'MyFileformat',
       \ },
       \ 'component_expand': {
       \   'linter_checking': 'lightline#ale#checking',
@@ -148,6 +149,7 @@ let NERDTreeShowHidden= 1
 autocmd vimenter * NERDTree
 noremap <Space>n :NERDTreeToggle<CR>
 autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
+let g:NERDTreeHighlightCursorline = 0
 
 "settings for vim-javascript
 let g:javascript_plugin_jsdoc = 1
@@ -176,3 +178,24 @@ nmap <silent> <C-j> <Plug>(ale_next_wrap)
 " Settings for lightline-ale plugin
 let g:lightline#ale#indicator_warnings = "Warning:"
 let g:lightline#ale#indicator_errors = "Error:"
+
+" Settings for vim-devicons
+set encoding=utf-8
+set guifont=DroidSansMono\ Nerd\ Font\ 12
+let g:webdevicons_enable = 1
+let g:webdevicons_enable_nerdtree = 1
+let g:webdevicons_enable_unite = 1
+let g:WebDevIconsUnicodeDecorateFolderNodes = 1
+let g:DevIconsEnableFoldersOpenClose = 1
+let g:DevIconsEnableFolderPatternMatching = 1
+autocmd FileType nerdtree setlocal nolist
+function! MyFiletype()
+  return winwidth(0) > 70 ? (strlen(&filetype) ? &filetype . ' ' . WebDevIconsGetFileTypeSymbol() : 'no ft') : ''
+endfunction
+function! MyFileformat()
+  return winwidth(0) > 70 ? (&fileformat . ' ' . WebDevIconsGetFileFormatSymbol()) : ''
+endfunction
+function! MyFileName()
+  let filename = expand('%:t') !=# '' ? expand('%:t') : '[No Name]'
+  return WebDevIconsGetFileTypeSymbol() . filename 
+endfunction

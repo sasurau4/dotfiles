@@ -43,3 +43,12 @@
 [submodule ".vim/pack/mypackage/start/gitv"]
 	path = .vim/pack/mypackage/start/gitv
 	url = https://github.com/gregsexton/gitv.git
+[submodule ".vim/pack/mypackage/start/vim-devicons"]
+	path = .vim/pack/mypackage/start/vim-devicons
+	url = https://github.com/ryanoasis/vim-devicons.git
+[submodule ".vim/icons/nerd-fonts"]
+	path = .vim/icons/nerd-fonts
+	url = https://github.com/ryanoasis/nerd-fonts.git
+[submodule ".vim/pack/mypackage/start/vim-nerdtree-syntax-highlight"]
+	path = .vim/pack/mypackage/start/vim-nerdtree-syntax-highlight
+	url = https://github.com/tiagofumo/vim-nerdtree-syntax-highlight.git
