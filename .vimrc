@@ -176,3 +176,6 @@ nmap <silent> <C-j> <Plug>(ale_next_wrap)
 " Settings for lightline-ale plugin
 let g:lightline#ale#indicator_warnings = "Warning:"
 let g:lightline#ale#indicator_errors = "Error:"
+
+" Markdown highlight
+autocmd BufNewFile,BufRead *.md set filetype=markdown
