@@ -26,6 +26,7 @@ alias gb="git branch"
 alias sagu="sudo apt-get update && sudo apt-get -y upgrade && sudo apt-get -y dist-upgrade && sudo apt-get -y autoremove && sudo apt-get -y autoclean"
 alias buildallapps='react-native run-ios --port=8088 && react-native run-android --port=8088'
 alias rn="react-native"
+alias :q="exit"
 
 #HISTORY
 HISTFILE=$HOME/dotfiles/.zsh_history
@@ -194,7 +195,9 @@ if [ "$(uname)" = "Darwin" ]; then
   alias atom="/Applications/Atom.app/Contents/Resources/app/atom.sh"
   alias android-studio="open -a /Applications/Android\ Studio.app/"
   export ANDROID_HOME=$HOME/Library/Android/sdk
+  export PATH=$PATH:$ANDROID_HOME/emulator
   export PATH=$PATH:$ANDROID_HOME/tools
+  export PATH=$PATH:$ANDROID_HOME/tools/bin
   export PATH=$PATH:$ANDROID_HOME/platform-tools
 elif [ "$(expr substr $(uname -s) 1 5)" == 'Linux' ]; then
   # Linux for private
@@ -202,3 +205,4 @@ elif [ "$(expr substr $(uname -s) 1 5)" == 'Linux' ]; then
   export PATH=$PATH:$ANDROID_HOME/tools
   export PATH=$PATH:$ANDROID_HOME/platform-tools
 fi
+

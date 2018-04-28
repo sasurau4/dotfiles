@@ -181,7 +181,15 @@ let g:lightline#ale#indicator_errors = "Error:"
 
 " Settings for vim-devicons
 set encoding=utf-8
-set guifont=DroidSansMono\ Nerd\ Font\ 12
+
+
+let OSTYPE = system('uname')
+if OSTYPE == "Darwin\n"
+  set guifont=DroidSansMono\ Nerd\ Font:h12
+elseif OSTYPE == "Linux\n"
+  set guifont=DroidSansMono\ Nerd\ Font\ 12
+endif
+
 let g:webdevicons_enable = 1
 let g:webdevicons_enable_nerdtree = 1
 let g:webdevicons_enable_unite = 1
@@ -197,5 +205,13 @@ function! MyFileformat()
 endfunction
 function! MyFileName()
   let filename = expand('%:t') !=# '' ? expand('%:t') : '[No Name]'
-  return WebDevIconsGetFileTypeSymbol() . filename 
+  return filename . ' ' . WebDevIconsGetFileTypeSymbol()
 endfunction
+
+if exists("g:loaded_webdevicons")
+  call webdevicons#refresh()
+endif
+
+" Markdown highlight
+autocmd BufNewFile,BufRead *.md set filetype=markdown
+
