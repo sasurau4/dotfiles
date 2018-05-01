@@ -6,6 +6,7 @@ DOT_DIRECTORY="${HOME}/dotfiles"
 cd ${DOT_DIRECTORY}
 
 echo $(tput setaf 4)Cloning submodules start.$(tput sgr0)
+git submodule init
 git submodule update --recursive
 git submodule foreach git pull origin master
 echo $(tput setaf 4)Cloning submodules done! ✔︎$(tput sgr0)
