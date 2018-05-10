@@ -14,7 +14,6 @@ set hidden
 "入力中のコマンドをステータスに表示する
 set showcmd
 
-
 "見た目系
 "行番号を表示
 set number
@@ -92,7 +91,6 @@ set wildmenu wildmode=list:longest,full
 set history=5000 
 
 "manage plugin
-let g:neocomplete#enable_at_startup = 1
 let g:indentline#enable_at_startup = 1
 let g:lightline#enable_at_startup = 1
 
@@ -124,7 +122,7 @@ let g:lightline = {
 
 "settings for neocomlete & neosnippet & neosnippet-snippets
  " Vim起動時にneocompleteを有効にする
-let g:neocomplete#enable_at_startup = 1
+let g:neocomplete#enable_at_startup = 0
 " smartcase有効化. 大文字が入力されるまで大文字小文字の区別を無視する
 let g:neocomplete#enable_smart_case = 1
 " 3文字以上の単語に対して補完を有効にする
@@ -134,12 +132,17 @@ let g:neocomplete#enable_auto_delimiter = 1
 " 1文字目の入力から補完のポップアップを表示
 let g:neocomplete#auto_completion_start_length = 1
 " バックスペースで補完のポップアップを閉じる
-inoremap <expr><BS> neocomplete#smart_close_popup()."<C-h>"
+"inoremap <expr><BS> neocomplete#smart_close_popup()."<C-h>"
 
 " エンターキーで補完候補の確定. スニペットの展開もエンターキーで確定・・・・・・②
-imap <expr><CR> neosnippet#expandable() ? "<Plug>(neosnippet_expand_or_jump)" : pumvisible() ? "<C-y>" : "<CR>"
+"imap <expr><CR> neosnippet#expandable() ? "<Plug>(neosnippet_expand_or_jump)" : pumvisible() ? "<C-y>" : "<CR>"
 " タブキーで補完候補の選択. スニペット内のジャンプもタブキーでジャンプ・・・・・・③
-imap <expr><TAB> pumvisible() ? "<C-n>" : neosnippet#jumpable() ? "<Plug>(neosnippet_expand_or_jump)" : "<TAB>"
+"imap <expr><TAB> pumvisible() ? "<C-n>" : neosnippet#jumpable() ? "<Plug>(neosnippet_expand_or_jump)" : "<TAB>"
+
+"settings for deoplete.nvim
+let g:deoplete#enable_at_startup = 1
+let g:deoplete#enable_smart_case = 1
+
 
 "settings for denite
 let g:python3_host_prog = expand('/usr/bin/python3')
@@ -229,3 +232,8 @@ endif
 " Markdown highlight
 autocmd BufNewFile,BufRead *.md set filetype=markdown
 
+"Help tag Generating
+packloadall
+" Load all of the helptags now, after plugins have been loaded.
+" All messages and errors will be ignored.
+silent! helptags ALL

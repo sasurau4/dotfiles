@@ -4,15 +4,6 @@
 [submodule ".vim/pack/mypackage/start/lightline"]
 	path = .vim/pack/mypackage/start/lightline
 	url = https://github.com/itchyny/lightline.vim.git
-[submodule ".vim/pack/mypackage/start/neocomplete"]
-	path = .vim/pack/mypackage/start/neocomplete
-	url = https://github.com/Shougo/neocomplete.vim.git
-[submodule ".vim/pack/mypackage/start/neosnippet-snippets"]
-	path = .vim/pack/mypackage/start/neosnippet-snippets
-	url = https://github.com/Shougo/neosnippet-snippets.git
-[submodule ".vim/pack/mypackage/start/neosnippet"]
-	path = .vim/pack/mypackage/start/neosnippet
-	url = https://github.com/Shougo/neosnippet.vim.git
 [submodule ".vim/pack/mypackage/start/denite"]
 	path = .vim/pack/mypackage/start/denite
 	url = https://github.com/Shougo/denite.nvim.git
@@ -37,6 +28,7 @@
 [submodule ".vim/pack/mypackage/start/vCoolor.vim"]
 	path = .vim/pack/mypackage/start/vCoolor.vim
 	url = https://github.com/KabbAmine/vCoolor.vim.git
+  ignore = dirty
 [submodule ".vim/pack/mypackage/start/vim-figitive"]
 	path = .vim/pack/mypackage/start/vim-figitive
 	url = https://github.com/tpope/vim-fugitive.git
@@ -49,3 +41,13 @@
 [submodule ".vim/pack/mypackage/start/vim-nerdtree-syntax-highlight"]
 	path = .vim/pack/mypackage/start/vim-nerdtree-syntax-highlight
 	url = https://github.com/tiagofumo/vim-nerdtree-syntax-highlight.git
+[submodule ".vim/pack/mypackage/start/deoplete.nvim"]
+	path = .vim/pack/mypackage/start/deoplete.nvim
+	url = https://github.com/Shougo/deoplete.nvim.git
+[submodule ".vim/pack/mypackage/start/nvim-yarp"]
+	path = .vim/pack/mypackage/start/nvim-yarp
+	url = https://github.com/roxma/nvim-yarp.git
+[submodule ".vim/pack/mypackage/start/vim-hug-neovim-rpc"]
+	path = .vim/pack/mypackage/start/vim-hug-neovim-rpc
+	url = https://github.com/roxma/vim-hug-neovim-rpc.git
+
