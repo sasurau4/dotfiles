@@ -142,13 +142,16 @@ let g:lightline = {
 "settings for deoplete.nvim
 let g:deoplete#enable_at_startup = 1
 let g:deoplete#enable_smart_case = 1
-
-"key remap for deoplete.nvim
-"default is inserted line but this action deffer from help doc.
-inoremap <silent> <CR> <C-r>=<SID>my_cr_function()<CR>
-function! s:my_cr_function() abort
-   return deoplete#close_popup()
-endfunction
+let g:deoplete#auto_complete_delay = 0
+let g:deoplete#auto_complete_start_length = 1
+let g:deoplete#enable_camel_case = 0
+let g:deoplete#enable_ignore_case = 0
+let g:deoplete#enable_refresh_always = 0
+let g:deoplete#file#enable_buffer_path = 1
+let g:deoplete#max_list = 10000
+inoremap <expr><tab> pumvisible() ? "\<C-n>" :
+      \ neosnippet#expandable_or_jumpable() ?
+      \    "\<Plug>(neosnippet_expand_or_jump)" : "\<tab>"
 
 "settings for denite
 let g:python3_host_prog = expand('/usr/bin/python3')
