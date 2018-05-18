@@ -153,6 +153,13 @@ inoremap <expr><tab> pumvisible() ? "\<C-n>" :
       \ neosnippet#expandable_or_jumpable() ?
       \    "\<Plug>(neosnippet_expand_or_jump)" : "\<tab>"
 
+" for deoplete, <C-h>, <BS>: close popup and delete backword char.
+inoremap <expr><C-h> deoplete#smart_close_popup()."\<C-h>"
+inoremap <expr><BS>  deoplete#smart_close_popup()."\<C-h>"
+
+"do not want to move to the next line after the selected word
+inoremap <silent><expr><CR> pumvisible() ? deoplete#mappings#close_popup() : "\<CR>"
+
 "settings for denite
 let g:python3_host_prog = expand('/usr/bin/python3')
 
