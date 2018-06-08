@@ -190,15 +190,19 @@ fi
 
 if [ "$(uname)" = "Darwin" ]; then
   # Mac OS for work
-  export PATH="${PATH}:${HOME}/homebrew/bin"
-  alias vim=${HOME}/homebrew/bin/vim
+  export PATH="${HOME}/homebrew/bin:${PATH}"
   alias atom="/Applications/Atom.app/Contents/Resources/app/atom.sh"
   alias android-studio="open -a /Applications/Android\ Studio.app/"
+  # For Android
   export ANDROID_HOME=$HOME/Library/Android/sdk
   export PATH=$PATH:$ANDROID_HOME/emulator
   export PATH=$PATH:$ANDROID_HOME/tools
   export PATH=$PATH:$ANDROID_HOME/tools/bin
   export PATH=$PATH:$ANDROID_HOME/platform-tools
+  # for ruby
+  export PATH=$HOME/.rbenv/shims:$PATH
+  # for elastic search
+  export ELASTICSEARCH_HOST='http://localhost:9200'
 elif [ "$(expr substr $(uname -s) 1 5)" == 'Linux' ]; then
   # Linux for private
   export ANDROID_HOME=$HOME/Android/Sdk
