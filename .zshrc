@@ -203,6 +203,10 @@ if [ "$(uname)" = "Darwin" ]; then
   export PATH=$HOME/.rbenv/shims:$PATH
   # for elastic search
   export ELASTICSEARCH_HOST='http://localhost:9200'
+  # for gnubin
+  PATH="/Users/d-ihara/homebrew/opt/coreutils/libexec/gnubin:$PATH"
+  # for manpath of gnuman
+  MANPATH="/Users/d-ihara/homebrew/opt/coreutils/libexec/gnuman:$MANPATH"
 elif [ "$(expr substr $(uname -s) 1 5)" == 'Linux' ]; then
   # Linux for private
   export ANDROID_HOME=$HOME/Android/Sdk
