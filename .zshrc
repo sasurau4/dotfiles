@@ -212,5 +212,8 @@ elif [ "$(expr substr $(uname -s) 1 5)" == 'Linux' ]; then
   export ANDROID_HOME=$HOME/Android/Sdk
   export PATH=$PATH:$ANDROID_HOME/tools
   export PATH=$PATH:$ANDROID_HOME/platform-tools
+
+  # for yarn with nvm
+  export PATH="$PATH:$HOME/.config/yarn/global/node_modules/.bin/"
 fi
 
