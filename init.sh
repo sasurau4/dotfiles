@@ -31,6 +31,9 @@ cd ${DOT_DIRECTORY}
 ./deploy.sh
 
 # run install script about vim plugins
-bash ./${DOT_DIRECTORY}/.vim/pack/mypackage/start/LanguageClient-neovim/install.sh
+echo $(tput setaf 4)Build vim plugins.$(tput sgr0)
+cd ${DOT_DIRECTORY}/.vim/pack/mypackage/start/LanguageClient-neovim
+bash install.sh
+cd ${DOT_DIRECTORY}
 
 echo $(tput setaf 2)initialize dotfiles complete!. ✔︎$(tput sgr0)
