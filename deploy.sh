@@ -7,13 +7,13 @@ cd ${DOT_DIRECTORY}
 
 echo $(tput setaf 4)Update submodules start.$(tput sgr0)
 git submodule init
-git submodule update --recursive
+git submodule update --depth 1 --recursive
 echo $(tput setaf 4)Update submodules done! ✔︎$(tput sgr0)
 
 if [ "$1" = "-u" -o "$1" = "--update" ]
 then
   echo $(tput setaf 4)Pull every submodules start.$(tput sgr0)
-  git submodule foreach git pull origin master --depth=1
+  git submodule foreach git pull origin master --depth 1
   echo $(tput setaf 4)Pull every submodules done! ✔︎$(tput sgr0)
 fi
 
