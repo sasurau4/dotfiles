@@ -50,3 +50,6 @@
 [submodule ".vim/pack/mypackage/start/vim-hug-neovim-rpc"]
 	path = .vim/pack/mypackage/start/vim-hug-neovim-rpc
 	url = https://github.com/roxma/vim-hug-neovim-rpc.git
+[submodule ".vim/pack/mypackage/start/LanguageClient-neovim"]
+	path = .vim/pack/mypackage/start/LanguageClient-neovim
+	url = https://github.com/autozimu/LanguageClient-neovim.git
