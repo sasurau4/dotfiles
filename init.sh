@@ -15,7 +15,7 @@ if [ -e ${HOME}/nerd-fonts ]; then
   echo $(tput setaf 4)Already exists nerd-fonts dir, skip install.$(tput sgr0)
 else
   echo $(tput setaf 4)Install nerd fonts.$(tput sgr0)
-  git clone --depth 1 https://github.com/ryanoasis/nerd-fonts.git ${HOME}/nerd-fonts
+  git clone --depth 1 -- https://github.com/ryanoasis/nerd-fonts.git ${HOME}/nerd-fonts
   ${HOME}/nerd-fonts/install.sh
   echo $(tput setaf 4)nerd fonts installed! ✔︎$(tput sgr0)
 fi
@@ -31,7 +31,6 @@ cd ${DOT_DIRECTORY}
 ./deploy.sh
 
 # run install script about vim plugins
-./${DOT_DIRECTORY}/.vim/pack/mypackage/start/LanguageClient-neovim/install.sh
-
+bash ./${DOT_DIRECTORY}/.vim/pack/mypackage/start/LanguageClient-neovim/install.sh
 
 echo $(tput setaf 2)initialize dotfiles complete!. ✔︎$(tput sgr0)
