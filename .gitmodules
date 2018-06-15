@@ -53,3 +53,15 @@
 [submodule ".vim/pack/mypackage/start/LanguageClient-neovim"]
 	path = .vim/pack/mypackage/start/LanguageClient-neovim
 	url = https://github.com/autozimu/LanguageClient-neovim.git
+[submodule ".vim/pack/mypackage/start/kotlin-vim"]
+	path = .vim/pack/mypackage/start/kotlin-vim
+	url = https://github.com/udalov/kotlin-vim.git
+[submodule ".vim/pack/mypackage/start/typescript-vim"]
+	path = .vim/pack/mypackage/start/typescript-vim
+	url = https://github.com/leafgarland/typescript-vim.git
+[submodule ".vim/pack/mypackage/start/vim-css3-syntax"]
+	path = .vim/pack/mypackage/start/vim-css3-syntax
+	url = https://github.com/hail2u/vim-css3-syntax.git
+[submodule ".vim/pack/mypackage/start/vim-styled-components"]
+	path = .vim/pack/mypackage/start/vim-styled-components
+	url = https://github.com/styled-components/vim-styled-components.git
