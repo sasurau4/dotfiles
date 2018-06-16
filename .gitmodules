@@ -53,6 +53,7 @@
 [submodule ".vim/pack/mypackage/start/LanguageClient-neovim"]
 	path = .vim/pack/mypackage/start/LanguageClient-neovim
 	url = https://github.com/autozimu/LanguageClient-neovim.git
+  branch = next
 [submodule ".vim/pack/mypackage/start/kotlin-vim"]
 	path = .vim/pack/mypackage/start/kotlin-vim
 	url = https://github.com/udalov/kotlin-vim.git
