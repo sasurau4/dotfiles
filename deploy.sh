@@ -7,7 +7,7 @@ cd ${DOT_DIRECTORY}
 
 echo $(tput setaf 4)Update submodules start.$(tput sgr0)
 git submodule init
-git submodule update --recursive --depth 1
+git submodule update --recursive 
 echo $(tput setaf 4)Update submodules done! ✔︎$(tput sgr0)
 
 if [ "$1" = "-u" -o "$1" = "--update" ]
