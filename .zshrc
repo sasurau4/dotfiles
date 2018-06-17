@@ -24,8 +24,6 @@ alias gd="git diff"
 alias gdc="git diff --cached"
 alias gb="git branch"
 alias sagu="sudo apt-get update && sudo apt-get -y upgrade && sudo apt-get -y dist-upgrade && sudo apt-get -y autoremove && sudo apt-get -y autoclean"
-alias buildallapps='react-native run-ios --port=8088 && react-native run-android --port=8088'
-alias rn="react-native"
 alias :q="exit"
 
 #HISTORY
