@@ -165,6 +165,11 @@ augroup javascript_folding
     au FileType javascript setlocal foldmethod=syntax
 augroup END
 
+augroup json_folding
+  au!
+  au FileType json setlocal foldmethod=syntax
+augroup END
+
 "fold settings
 autocmd InsertEnter * if !exists('w:last_fdm')
             \| let w:last_fdm=&foldmethod
