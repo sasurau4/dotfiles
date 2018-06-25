@@ -189,11 +189,10 @@ let g:vim_jsx_pretty_colorful_config = 1
 
 " Setting for Ale
 let g:ale_fixers = {
-\   'javascript': ['eslint', 'prettier'],
-\   'typescript': ['eslint', 'prettier', 'tslint'],
+\   'javascript': ['prettier', 'eslint'],
+\   'typescript': ['prettier', 'tslint'],
 \}
 let g:ale_javascript_prettier_options = '--single-quote'
-let g:ale_javascript_prettier_use_local_config = 1
 
 " Set this setting in vimrc if you want to fix files automatically on save.
 " This is off by default.
