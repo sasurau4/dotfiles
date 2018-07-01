@@ -34,7 +34,8 @@ set showmode
 "折り返し時に表示行単位での移動できるようにする
 nnoremap j gj
 nnoremap k gk
-
+"All files folding by syntax
+:set foldmethod=syntax
 
 "Tab系
 "不可視文字を可視化(タブが「▸-」と表示される)
@@ -187,7 +188,7 @@ let g:ale_fixers = {
 \   'javascript': ['prettier', 'eslint'],
 \   'typescript': ['prettier', 'tslint'],
 \}
-let g:ale_javascript_prettier_options = '--single-quote'
+let g:ale_javascript_prettier_options = '--single-quote --trailing-comma es5'
 
 " Set this setting in vimrc if you want to fix files automatically on save.
 " This is off by default.
