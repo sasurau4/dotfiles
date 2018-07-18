@@ -141,6 +141,8 @@ let g:deoplete#sources.python3 = ['LanguageClient']
 let g:deoplete#sources.rust = ['LanguageClient']
 let g:deoplete#sources.c = ['LanguageClient']
 let g:deoplete#sources.vim = ['vim']
+let g:deoplete#sources.kotlin = ['LanguageClient']
+let g:deoplete#sources.java = ['LanguageClient']
 
 " for deoplete, <C-h>, <BS>: close popup and delete backword char.
 inoremap <expr><C-h> deoplete#smart_close_popup()."\<C-h>"
@@ -189,10 +191,14 @@ set ttyfast
 let g:vim_jsx_pretty_colorful_config = 1
 
 " Setting for Ale
+" let g:ale_fixers = ['prettier', 'eslint', 'tslint', 'languageserver', 'ktlint']
 let g:ale_fixers = {
 \   'javascript': ['prettier', 'eslint'],
 \   'typescript': ['prettier', 'tslint'],
+\   'graphql': ['prettier', 'eslint'],
+\   'json': ['prettier'],
 \}
+
 let g:ale_javascript_prettier_options = '--single-quote --trailing-comma es5'
 
 " Set this setting in vimrc if you want to fix files automatically on save.
@@ -256,6 +262,7 @@ let g:LanguageClient_serverCommands = {
     \ 'typescript': ['javascript-typescript-stdio'],
     \ 'rust': ['rustup', 'run', 'stable', 'rls'],
     \ }
+"    \ 'kotlin': ['kotlin-language-server'],
 let g:LanguageClient_autoStart = 1
 nnoremap <silent> K :call LanguageClient_textDocument_hover()<CR>
 nnoremap <silent> gd :call LanguageClient_textDocument_definition()<CR>
