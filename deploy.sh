@@ -15,6 +15,9 @@ then
   echo $(tput setaf 4)Pull every submodules start.$(tput sgr0)
   git submodule update --remote --depth 1
   echo $(tput setaf 4)Pull every submodules done! ✔︎$(tput sgr0)
+  git add *
+  git commit -m "update vim plugins"
+  echo $(tput setaf 4)Update submodules done! ✔︎$(tput sgr0)
 fi
 
 echo $(tput setaf 4)Create or update symlinnks for dotfiles$(tput sgr0)
