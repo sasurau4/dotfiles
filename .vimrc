@@ -65,6 +65,8 @@ set wrapscan
 set hlsearch
 "ESC連打でハイライト解除
 nmap <Esc><Esc> :nohlsearch<CR><Esc>
+" for vimgrep auto open quickfix-window
+autocmd QuickFixCmdPost *grep* cwindow
 "クリップボード連携
 set clipboard=unnamedplus,unnamed
 
