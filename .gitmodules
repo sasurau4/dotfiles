@@ -72,3 +72,6 @@
 [submodule ".vim/pack/mypackage/start/vim-graphql"]
 	path = .vim/pack/mypackage/start/vim-graphql
 	url = https://github.com/jparise/vim-graphql.git
+[submodule ".vim/pack/mypackage/start/vim-jsx-typescript"]
+	path = .vim/pack/mypackage/start/vim-jsx-typescript
+	url = https://github.com/peitalin/vim-jsx-typescript.git
