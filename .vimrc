@@ -136,16 +136,6 @@ let g:deoplete#enable_refresh_always = 0
 let g:deoplete#file#enable_buffer_path = 1
 let g:deoplete#max_list = 10000
 
-let g:deoplete#sources = {}
-let g:deoplete#sources.cpp = ['LanguageClient']
-let g:deoplete#sources.python = ['LanguageClient']
-let g:deoplete#sources.python3 = ['LanguageClient']
-let g:deoplete#sources.rust = ['LanguageClient']
-let g:deoplete#sources.c = ['LanguageClient']
-let g:deoplete#sources.vim = ['vim']
-let g:deoplete#sources.kotlin = ['LanguageClient']
-let g:deoplete#sources.java = ['LanguageClient']
-
 " for deoplete, <C-h>, <BS>: close popup and delete backword char.
 inoremap <expr><C-h> deoplete#smart_close_popup()."\<C-h>"
 inoremap <expr><BS>  deoplete#smart_close_popup()."\<C-h>"
@@ -260,8 +250,9 @@ silent! helptags ALL
 set hidden
 let g:LanguageClient_autoStart = 1
 let g:LanguageClient_serverCommands = {
-    \ 'javascript': ['javascript-typescript-stdio'],
-    \ 'typescript': ['javascript-typescript-stdio'],
+    \ 'javascript': ['npx javascript-typescript-stdio'],
+    \ 'typescript': ['npx javascript-typescript-stdio'],
+    \ 'typescript.jsx': ['npx javascript-typescript-stdio'],
     \ 'rust': ['rustup', 'run', 'stable', 'rls'],
     \ }
 "    \ 'kotlin': ['kotlin-language-server'],
@@ -270,4 +261,10 @@ nnoremap <silent> K :call LanguageClient_textDocument_hover()<CR>
 nnoremap <silent> gd :call LanguageClient_textDocument_definition()<CR>
 nnoremap <silent> <F2> :call LanguageClient_textDocument_rename()<CR>
 nnoremap <F5> :call LanguageClient_contextMenu()<CR>
+set runtimepath+=~/.vim/pack/mypackage/start/LanguageClient-neovim
 
+" TypeScript
+autocmd BufRead,BufNewFile *.ts set filetype=typescript
+
+" set filetypes as typescript.jsx
+autocmd BufNewFile,BufRead *.tsx,*.jsx set filetype=typescript.jsx
