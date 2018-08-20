@@ -1,5 +1,6 @@
 #!/bin/sh
 
+set -eu
 # install vim plugin as submodule
 DOT_DIRECTORY="${HOME}/dotfiles"
 cd ${DOT_DIRECTORY}/.vim/pack/mypackage/start/

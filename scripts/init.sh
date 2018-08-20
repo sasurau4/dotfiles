@@ -1,5 +1,6 @@
 #!/bin/sh
 
+set -eu
 echo $(tput setaf 2)initialize dotfiles start!.$(tput sgr0)
 
 DOT_DIRECTORY="${HOME}/dotfiles"
@@ -28,7 +29,7 @@ echo $(tput setaf 4)Langage Server Protocols installed! ✔︎$(tput sgr0)
 
 # deploy
 cd ${DOT_DIRECTORY}
-./deploy.sh
+./scripts/deploy.sh
 
 # run install script about vim plugins
 echo $(tput setaf 4)Build vim plugins.$(tput sgr0)

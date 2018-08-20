@@ -1,5 +1,6 @@
 #!/bin/sh
 
+set -eu
 echo $(tput setaf 2)Deploy dotfiles start!.$(tput sgr0)
 
 DOT_DIRECTORY="${HOME}/dotfiles"
