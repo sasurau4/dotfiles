@@ -250,10 +250,10 @@ silent! helptags ALL
 set hidden
 let g:LanguageClient_autoStart = 1
 let g:LanguageClient_serverCommands = {
-    \ 'javascript': ['javascript-typescript-stdio'],
-    \ 'javascript.jsx': ['javascript-typescript-stdio'],
-    \ 'typescript': ['javascript-typescript-stdio'],
-    \ 'typescript.jsx': ['javascript-typescript-stdio'],
+    \ 'javascript': ['npx javascript-typescript-stdio'],
+    \ 'javascript.jsx': ['npx javascript-typescript-stdio'],
+    \ 'typescript': ['npx javascript-typescript-stdio'],
+    \ 'typescript.jsx': ['npx javascript-typescript-stdio'],
     \ 'rust': ['rustup', 'run', 'stable', 'rls'],
     \ }
 "    \ 'kotlin': ['kotlin-language-server'],
