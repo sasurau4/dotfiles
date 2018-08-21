@@ -269,3 +269,6 @@ autocmd BufRead,BufNewFile *.ts set filetype=typescript
 
 " set filetypes as typescript.jsx
 autocmd BufNewFile,BufRead *.tsx,*.jsx set filetype=typescript.jsx
+
+" for vim-fugitive
+nnoremap <silent> gs :Gstatus<CR> 
