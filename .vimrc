@@ -250,14 +250,13 @@ silent! helptags ALL
 set hidden
 let g:LanguageClient_autoStart = 1
 let g:LanguageClient_serverCommands = {
-    \ 'javascript': ['npx javascript-typescript-stdio'],
-    \ 'javascript.jsx': ['npx javascript-typescript-stdio'],
-    \ 'typescript': ['npx javascript-typescript-stdio'],
-    \ 'typescript.jsx': ['npx javascript-typescript-stdio'],
+    \ 'javascript': ['javascript-typescript-stdio'],
+    \ 'javascript.jsx': ['javascript-typescript-stdio'],
+    \ 'typescript': ['javascript-typescript-stdio'],
+    \ 'typescript.jsx': ['javascript-typescript-stdio'],
     \ 'rust': ['rustup', 'run', 'stable', 'rls'],
     \ }
 "    \ 'kotlin': ['kotlin-language-server'],
-let g:LanguageClient_autoStart = 1
 nnoremap <silent> K :call LanguageClient_textDocument_hover()<CR>
 nnoremap <silent> gd :call LanguageClient_textDocument_definition()<CR>
 nnoremap <silent> <F2> :call LanguageClient_textDocument_rename()<CR>
