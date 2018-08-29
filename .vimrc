@@ -258,7 +258,7 @@ let g:LanguageClient_serverCommands = {
     \ }
 "    \ 'kotlin': ['kotlin-language-server'],
 nnoremap <silent> K :call LanguageClient_textDocument_hover()<CR>
-nnoremap <silent> gd :call LanguageClient_textDocument_definition()<CR>
+nnoremap <silent> gd :sb <CR>:call LanguageClient_textDocument_definition()<CR>
 nnoremap <silent> <F2> :call LanguageClient_textDocument_rename()<CR>
 nnoremap <F5> :call LanguageClient_contextMenu()<CR>
 set runtimepath+=~/.vim/pack/mypackage/start/LanguageClient-neovim
