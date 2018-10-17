@@ -51,7 +51,6 @@ set autoindent
 "insert space instead of tab
 set expandtab
 
-
 "検索系
 "検索文字列が小文字の場合は大文字小文字を区別なく検索する
 set ignorecase
@@ -72,7 +71,7 @@ set clipboard=unnamedplus,unnamed
 
 "syntax highlight
 syntax enable
-set background=dark
+set background=light
 colorscheme solarized
 
 "mode control
