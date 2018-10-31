@@ -171,8 +171,9 @@ case ${OSTYPE} in
 esac
 
 # Golang
-export GOPATH=${HOME}/.go
+export GOPATH=${HOME}/go
 export PATH="${PATH}:${GOPATH}/bin:/usr/local/go/bin"
+export GOBIN="${GOPATH}/bin"
 
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
