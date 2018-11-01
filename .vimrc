@@ -238,15 +238,9 @@ endfunction
 if exists("g:loaded_webdevicons")
   call webdevicons#refresh()
 endif
-
+"
 " Markdown highlight
 autocmd BufNewFile,BufRead *.md set filetype=markdown
-
-"Help tag Generating
-packloadall
-" Load all of the helptags now, after plugins have been loaded.
-" All messages and errors will be ignored.
-silent! helptags ALL
 
 " for LanguageClient-neovim
 set hidden
@@ -269,7 +263,30 @@ set runtimepath+=~/.vim/pack/mypackage/start/LanguageClient-neovim
 autocmd BufRead,BufNewFile *.ts set filetype=typescript
 
 " set filetypes as typescript.jsx
-autocmd BufNewFile,BufRead *.tsx,*.jsx set filetype=typescript.jsx
+autocmd BufNewFile,BufRead *.tsx set filetype=typescript.jsx
+
+" jsx
+autocmd BufNewFile,BufRead *.jsx set filetype=javascript.jsx
 
 " for vim-fugitive
 nnoremap <silent> gs :Gstatus<CR> 
+
+" for vim-closetag
+let g:closetag_filenames = "*.html,*.xhtml,*.erb,*.jsx,*.js,*.tsx"
+let g:closetag_xhtml_filenames = '*.xhtml,*.erb,*.jsx,*.js,*.tsx'
+let g:closetag_emptyTags_caseSensitive = 1
+let g:closetag_shortcut = '>'
+let g:closetag_close_shortcut = '<leader>>'
+
+" ***************************************************************************
+" * CAUTION: Put below lines at the very end of your vimrc file.            *
+" * For more details, https://github.com/w0rp/ale#generating-vim-help-files *
+" ***************************************************************************
+" Load all plugins now.
+" Plugins need to be added to runtimepath before helptags can be generated.
+packloadall
+" Load all of the helptags now, after plugins have been loaded.
+" All messages and errors will be ignored.
+silent! helptags ALL
+
+
