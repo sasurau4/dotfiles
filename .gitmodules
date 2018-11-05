@@ -78,3 +78,6 @@
 [submodule ".vim/pack/mypackage/start/vim-closetag"]
 	path = .vim/pack/mypackage/start/vim-closetag
 	url = https://github.com/alvan/vim-closetag.git
+[submodule ".vim/pack/mypackage/start/auto-pairs"]
+	path = .vim/pack/mypackage/start/auto-pairs
+	url = https://github.com/jiangmiao/auto-pairs.git
