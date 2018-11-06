@@ -178,7 +178,7 @@ autocmd InsertLeave,WinLeave * if exists('w:last_fdm')
             \| endif
 
 "solve too slow problem
-set lazyredraw
+ set lazyredraw
 set ttyfast
 
 "setting for vim-jsx-pretty
@@ -249,7 +249,7 @@ let g:LanguageClient_serverCommands = {
     \ 'javascript': ['javascript-typescript-stdio'],
     \ 'javascript.jsx': ['javascript-typescript-stdio'],
     \ 'typescript': ['javascript-typescript-stdio'],
-    \ 'typescript.jsx': ['javascript-typescript-stdio'],
+    \ 'typescript.tsx': ['javascript-typescript-stdio'],
     \ 'rust': ['rustup', 'run', 'stable', 'rls'],
     \ }
 "    \ 'kotlin': ['kotlin-language-server'],
@@ -262,11 +262,8 @@ set runtimepath+=~/.vim/pack/mypackage/start/LanguageClient-neovim
 " TypeScript
 autocmd BufRead,BufNewFile *.ts set filetype=typescript
 
-" set filetypes as typescript.jsx
-autocmd BufNewFile,BufRead *.tsx set filetype=typescript.jsx
-
-" jsx
-autocmd BufNewFile,BufRead *.jsx set filetype=javascript.jsx
+" set filetypes as typescript.tsx
+autocmd BufNewFile,BufRead *.jsx,*.tsx set filetype=typescript.tsx
 
 " for vim-fugitive
 nnoremap <silent> gs :Gstatus<CR> 
