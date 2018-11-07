@@ -262,9 +262,6 @@ set runtimepath+=~/.vim/pack/mypackage/start/LanguageClient-neovim
 " TypeScript
 autocmd BufRead,BufNewFile *.ts set filetype=typescript
 
-" set filetypes as typescript.tsx
-autocmd BufNewFile,BufRead *.jsx,*.tsx set filetype=typescript.tsx
-
 " for vim-fugitive
 nnoremap <silent> gs :Gstatus<CR> 
 
