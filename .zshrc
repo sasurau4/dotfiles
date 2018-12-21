@@ -216,5 +216,9 @@ elif [ "$(expr substr $(uname -s) 1 5)" == 'Linux' ]; then
 
   # for yarn with nvm
   export PATH="$PATH:$HOME/.config/yarn/global/node_modules/.bin/"
+
+  # for docker-compose
+  fpath=(~/.zsh/completion $fpath)
+  autoload -Uz compinit && compinit -i
 fi
 
