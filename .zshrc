@@ -220,5 +220,9 @@ elif [ "$(expr substr $(uname -s) 1 5)" == 'Linux' ]; then
   # for docker-compose
   fpath=(~/.zsh/completion $fpath)
   autoload -Uz compinit && compinit -i
+
+  #for rbenv
+  export PATH=$PATH:$HOME/.rbenv/bin
+  eval "$(rbenv init -)"
 fi
 
