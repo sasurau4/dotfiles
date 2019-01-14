@@ -206,8 +206,6 @@ if [ "$(uname)" = "Darwin" ]; then
   PATH="/Users/d-ihara/homebrew/opt/coreutils/libexec/gnubin:$PATH"
   # for manpath of gnuman
   MANPATH="/Users/d-ihara/homebrew/opt/coreutils/libexec/gnuman:$MANPATH"
-  # for node8
-  alias node8='~/homebrew/Cellar/node@8/8.11.3_1/bin/node'
 elif [ "$(expr substr $(uname -s) 1 5)" == 'Linux' ]; then
   # Linux for private
   export ANDROID_HOME=$HOME/Android/Sdk
