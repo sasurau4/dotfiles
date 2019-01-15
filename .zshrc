@@ -206,6 +206,7 @@ if [ "$(uname)" = "Darwin" ]; then
   PATH="/Users/d-ihara/homebrew/opt/coreutils/libexec/gnubin:$PATH"
   # for manpath of gnuman
   MANPATH="/Users/d-ihara/homebrew/opt/coreutils/libexec/gnuman:$MANPATH"
+  export VIM="/Users/d-ihara/homebrew/share/vim"
 elif [ "$(expr substr $(uname -s) 1 5)" == 'Linux' ]; then
   # Linux for private
   export ANDROID_HOME=$HOME/Android/Sdk
