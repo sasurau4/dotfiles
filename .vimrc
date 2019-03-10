@@ -186,10 +186,9 @@ set ttyfast
 let g:vim_jsx_pretty_colorful_config = 1
 
 " Setting for Ale
-" let g:ale_fixers = ['prettier', 'eslint', 'tslint', 'languageserver', 'ktlint']
 let g:ale_fixers = {
 \   'javascript': ['prettier', 'eslint'],
-\   'typescript': ['prettier', 'tslint'],
+\   'typescript': ['prettier', 'tslint', 'eslint'],
 \   'graphql': ['prettier', 'eslint'],
 \   'json': ['prettier'],
 \}
