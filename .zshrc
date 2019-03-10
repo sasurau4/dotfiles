@@ -3,7 +3,6 @@ typeset -U path cdpath fpath manpath
 
 #PATH
 export PATH=/usr/local/bin:/usr/local/sbin:$PATH
-export PATH=$HOME/.nodebrew/current/bin:$PATH
 
 #LS
 export LSCOLORS=gxfxcxdxbxegedabagacad
@@ -24,7 +23,10 @@ alias gd="git diff"
 alias gdc="git diff --cached"
 alias gb="git branch"
 alias sagu="sudo apt-get update && sudo apt-get -y upgrade && sudo apt-get -y dist-upgrade && sudo apt-get -y autoremove && sudo apt-get -y autoclean"
+
+# related to Vim aliases
 alias :q="exit"
+alias v="vim"
 
 #HISTORY
 HISTFILE=$HOME/dotfiles/.zsh_history
@@ -188,25 +190,12 @@ if [ -f ~/.config/exercism/exercism_completion.zsh ]; then
 fi
 
 if [ "$(uname)" = "Darwin" ]; then
-  # Mac OS for work
-  export PATH="${HOME}/homebrew/bin:${PATH}"
-  alias atom="/Applications/Atom.app/Contents/Resources/app/atom.sh"
-  alias android-studio="open -a /Applications/Android\ Studio.app/"
   # For Android
   export ANDROID_HOME=$HOME/Library/Android/sdk
   export PATH=$PATH:$ANDROID_HOME/emulator
   export PATH=$PATH:$ANDROID_HOME/tools
   export PATH=$PATH:$ANDROID_HOME/tools/bin
   export PATH=$PATH:$ANDROID_HOME/platform-tools
-  # for ruby
-  export PATH=$HOME/.rbenv/shims:$PATH
-  # for elastic search
-  export ELASTICSEARCH_HOST='http://localhost:9200'
-  # for gnubin
-  PATH="/Users/d-ihara/homebrew/opt/coreutils/libexec/gnubin:$PATH"
-  # for manpath of gnuman
-  MANPATH="/Users/d-ihara/homebrew/opt/coreutils/libexec/gnuman:$MANPATH"
-  export VIM="/Users/d-ihara/homebrew/share/vim"
 elif [ "$(expr substr $(uname -s) 1 5)" == 'Linux' ]; then
   # Linux for private
   export ANDROID_HOME=$HOME/Android/Sdk
