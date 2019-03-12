@@ -147,7 +147,7 @@ inoremap <expr><BS>  deoplete#smart_close_popup()."\<C-h>"
 inoremap <silent><expr><CR> pumvisible() ? deoplete#mappings#close_popup() : "\<CR>"
 
 "settings for denite
-let g:python3_host_prog = expand('/usr/bin/python3')
+"let g:python3_host_prog = expand('/usr/bin/python3')
 
 "settings for NERDTree
 let NERDTreeShowHidden= 1

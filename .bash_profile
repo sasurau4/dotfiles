@@ -9,9 +9,6 @@ fi
 export LSCOLORS=gxfxcxdxbxegedabagacad
 alias ls='ls -G' 
 
-# PYTHONPATH
-export PYTHONPATH=/usr/local/lib/python2.7/site-packages:$PYTHONPATH
-
 # Easier navigation: .., ..., ...., ....., ~ and -
 alias ..="cd .."
 alias ...="cd ../.."

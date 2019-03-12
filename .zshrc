@@ -8,9 +8,6 @@ export PATH=/usr/local/bin:/usr/local/sbin:$PATH
 export LSCOLORS=gxfxcxdxbxegedabagacad
 alias ls='ls -G'
 
-#PYTHONPATH
-export PYTHONPATH=/usr/local/lib/python2.7/site-packages:$PYTHONPATH
-
 #alias
 alias g="git"
 alias gco="git checkout"
@@ -213,4 +210,3 @@ elif [ "$(expr substr $(uname -s) 1 5)" == 'Linux' ]; then
   export PATH=$PATH:$HOME/.rbenv/bin
   eval "$(rbenv init -)"
 fi
-
