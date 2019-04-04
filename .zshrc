@@ -211,3 +211,10 @@ elif [ "$(expr substr $(uname -s) 1 5)" == 'Linux' ]; then
   export PATH=$PATH:$HOME/.rbenv/bin
   eval "$(rbenv init -)"
 fi
+
+# tabtab source for serverless package
+# uninstall by removing these lines or running `tabtab uninstall serverless`
+[[ -f /Users/daiki.ihara/hobby/reg-suit/node_modules/tabtab/.completions/serverless.zsh ]] && . /Users/daiki.ihara/hobby/reg-suit/node_modules/tabtab/.completions/serverless.zsh
+# tabtab source for sls package
+# uninstall by removing these lines or running `tabtab uninstall sls`
+[[ -f /Users/daiki.ihara/hobby/reg-suit/node_modules/tabtab/.completions/sls.zsh ]] && . /Users/daiki.ihara/hobby/reg-suit/node_modules/tabtab/.completions/sls.zsh
