@@ -23,7 +23,7 @@ alias gb="git branch"
 # from Leko's dotfiles
 alias gpr="git push origin HEAD && hub compare $(git symbolic-ref --short HEAD)"
 # from whinky's dotfiles
-alias gbdf='(){ git branch --merged $1 | grep -vE "^\*|master|$1" | xargs -I % git branch -d % }'
+alias gbdf='() { git branch --merged $1 | grep -vE "^\*|master|$1" | xargs -I % git branch -d % }'
 
 alias sagu="sudo apt-get update && sudo apt-get -y upgrade && sudo apt-get -y dist-upgrade && sudo apt-get -y autoremove && sudo apt-get -y autoclean"
 
