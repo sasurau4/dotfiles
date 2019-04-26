@@ -8,7 +8,7 @@ export PATH=/usr/local/bin:/usr/local/sbin:$PATH
 export LSCOLORS=gxfxcxdxbxegedabagacad
 alias ls='ls -G'
 
-#alias
+#aliases
 alias g="git"
 alias gco="git checkout"
 alias gst="git status"
@@ -20,6 +20,9 @@ alias gsc="git stash clear"
 alias gd="git diff"
 alias gdc="git diff --cached"
 alias gb="git branch"
+# from Leko's dotfiles
+alias gpr="!po() { git push origin HEAD && hub compare $(git symbolic-ref --short HEAD) ;}; po"
+
 alias sagu="sudo apt-get update && sudo apt-get -y upgrade && sudo apt-get -y dist-upgrade && sudo apt-get -y autoremove && sudo apt-get -y autoclean"
 
 # related to Vim aliases

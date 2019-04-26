@@ -37,4 +37,13 @@ cd ${DOT_DIRECTORY}/.vim/pack/mypackage/start/LanguageClient-neovim
 bash install.sh
 cd ${DOT_DIRECTORY}
 
+echo $(tput setaf 4)Install daily development toolchains depend on platform.$(tput sgr0)
+if [ "$(uname)" = "Darwin" ]; then
+  echo $(tput setaf 4)OS is Mac OSX.$(tput sgr0)
+  brew install hub
+elif [ "$(expr substr $(uname -s) 1 5)" == 'Linux' ]; then
+  echo $(tput setaf 4)OS is Linux.$(tput sgr0)
+  sudo apt install hub
+fi
+
 echo $(tput setaf 2)initialize dotfiles complete!. ✔︎$(tput sgr0)
