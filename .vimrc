@@ -179,7 +179,7 @@ autocmd InsertLeave,WinLeave * if exists('w:last_fdm')
             \| endif
 
 "solve too slow problem
- set lazyredraw
+set lazyredraw
 set ttyfast
 
 "setting for vim-jsx-pretty
