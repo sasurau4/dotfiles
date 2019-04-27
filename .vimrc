@@ -265,6 +265,10 @@ autocmd BufRead,BufNewFile *.ts set filetype=typescript
 " for vim-fugitive
 nnoremap <silent> gs :Gstatus<CR> 
 
+" for aliases
+command Gpushh Gpush origin HEAD
+command Gpullh Gpull origin HEAD
+
 " for vim-closetag
 let g:closetag_filenames = "*.html,*.xhtml,*.erb,*.jsx,*.js,*.tsx"
 let g:closetag_xhtml_filenames = '*.xhtml,*.erb,*.jsx,*.js,*.tsx'
