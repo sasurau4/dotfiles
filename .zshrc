@@ -21,9 +21,9 @@ alias gd="git diff"
 alias gdc="git diff --cached"
 alias gb="git branch"
 # from Leko's dotfiles
-alias gpr="git push origin HEAD && hub compare $(git symbolic-ref --short HEAD)"
+alias gpr="git push origin HEAD && git symbolic-ref --short HEAD | xargs hub compare"
 # from whinky's dotfiles
-alias gbdf='() { git branch --merged $1 | grep -vE "^\*|master|$1" | xargs -I % git branch -d % }'
+gbdf () { git branch --merged $1 | grep -vE "^\*|master|$1" | xargs -I % git branch -d % }
 
 alias sagu="sudo apt-get update && sudo apt-get -y upgrade && sudo apt-get -y dist-upgrade && sudo apt-get -y autoremove && sudo apt-get -y autoclean"
 
