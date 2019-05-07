@@ -27,6 +27,16 @@ echo $(tput setaf 4)Install Langage Server Protocols.$(tput sgr0)
 yarn global add javascript-typescript-langserver
 echo $(tput setaf 4)Langage Server Protocols installed! ✔︎$(tput sgr0)
 
+# install Rust
+echo $(tput setaf 4)Install Rust.$(tput sgr0)
+curl https://sh.rustup.rs -sSf | sh
+echo $(tput setaf 4)Install Rust completed! ✔︎$(tput sgr0)
+
+# install Deno
+echo $(tput setaf 4)Install Deno.$(tput sgr0)
+url -fsSL https://deno.land/x/install/install.sh | sh
+echo $(tput setaf 4)Install Deno completed! ✔︎$(tput sgr0)
+
 # deploy
 cd ${DOT_DIRECTORY}
 ./scripts/deploy.sh
