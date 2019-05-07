@@ -192,6 +192,9 @@ if [ -f ~/.config/exercism/exercism_completion.zsh ]; then
   . ~/.config/exercism/exercism_completion.zsh
 fi
 
+# deno
+export PATH="${PATH}:${HOME}/.deno/bin"
+
 if [ "$(uname)" = "Darwin" ]; then
   # For Android
   export ANDROID_HOME=$HOME/Library/Android/sdk
