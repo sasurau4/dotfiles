@@ -20,6 +20,9 @@ alias gsc="git stash clear"
 alias gd="git diff"
 alias gdc="git diff --cached"
 alias gb="git branch"
+alias gpushh="git push origin HEAD"
+alias gpullm="git pull origin master"
+alias gpullh="git pull origin HEAD"
 # from Leko's dotfiles
 alias gpr="git push origin HEAD && git symbolic-ref --short HEAD | xargs hub compare"
 # from whinky's dotfiles
