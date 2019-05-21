@@ -27,6 +27,9 @@ gbdf () { git branch --merged $1 | grep -vE "^\*|master|$1" | xargs -I % git bra
 
 alias sagu="sudo apt-get update && sudo apt-get -y upgrade && sudo apt-get -y dist-upgrade && sudo apt-get -y autoremove && sudo apt-get -y autoclean"
 
+# deno
+alias upgradedeno="curl -fsSL https://deno.land/x/install/install.sh | sh"
+
 # related to Vim aliases
 alias :q="exit"
 alias v="vim"
