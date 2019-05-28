@@ -42,8 +42,3 @@ alias gbb="git branch -b"
 
 export PATH="$HOME/.cargo/bin:$PATH"
 
-if [ "$(uname)" = "Darwin" ]; then
-  export PATH="${PATH}:${HOME}/homebrew/bin"
-  export SHELL=${HOME}/homebrew/bin/zsh
-  exec ${HOME}/homebrew/bin/zsh -l
-fi
