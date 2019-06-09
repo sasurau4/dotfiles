@@ -191,9 +191,9 @@ let g:ale_fixers = {
 \   'typescript': ['prettier', 'tslint', 'eslint'],
 \   'graphql': ['prettier', 'eslint'],
 \   'json': ['prettier'],
+\   'rust': ['cargo', 'rustfmt'],
+\   'yaml': ['prettier'],
 \}
-
-let g:ale_javascript_prettier_options = '--single-quote --trailing-comma es5'
 
 " Set this setting in vimrc if you want to fix files automatically on save.
 " This is off by default.
