@@ -191,7 +191,7 @@ let g:ale_fixers = {
 \   'typescript': ['prettier', 'tslint', 'eslint'],
 \   'graphql': ['prettier', 'eslint'],
 \   'json': ['prettier'],
-\   'rust': ['cargo', 'rustfmt'],
+\   'rust': ['rustfmt'],
 \   'yaml': ['prettier'],
 \}
 
