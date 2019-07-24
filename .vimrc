@@ -144,7 +144,7 @@ inoremap <expr><C-h> deoplete#smart_close_popup()."\<C-h>"
 inoremap <expr><BS>  deoplete#smart_close_popup()."\<C-h>"
 
 "do not want to move to the next line after the selected word
-inoremap <silent><expr><CR> pumvisible() ? deoplete#mappings#close_popup() : "\<CR>"
+inoremap <silent><expr><CR> pumvisible() ? deoplete#close_popup() : "\<CR>"
 
 "settings for denite
 "let g:python3_host_prog = expand('/usr/bin/python3')
@@ -275,6 +275,9 @@ let g:closetag_xhtml_filenames = '*.xhtml,*.erb,*.jsx,*.js,*.tsx'
 let g:closetag_emptyTags_caseSensitive = 1
 let g:closetag_shortcut = '>'
 let g:closetag_close_shortcut = '<leader>>'
+
+" for tabnine
+set rtp+=~/dotfiles/.vim/pack/mypackage/start/tabnine-vim
 
 " ***************************************************************************
 " * CAUTION: Put below lines at the very end of your vimrc file.            *

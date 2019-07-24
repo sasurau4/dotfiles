@@ -9,6 +9,7 @@ cd ${DOT_DIRECTORY}
 # install neovim
 echo $(tput setaf 4)Install neovim from pip3.$(tput sgr0)
 pip3 install --upgrade neovim
+pip3 install --upgrade pynvim
 echo $(tput setaf 4)neovim installed! ✔︎$(tput sgr0)
 
 # install nerd fonts

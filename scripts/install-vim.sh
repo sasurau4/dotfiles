@@ -30,7 +30,6 @@ make distclean
 ./configure \
   --with-features=huge \
   --enable-gui=gtk3 \
-  --enable-pythoninterp \
   --enable-python3interp \
   --enable-multibyte \
   --enable-fail-if-missing
