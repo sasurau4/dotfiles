@@ -78,3 +78,6 @@
 [submodule ".vim/pack/mypackage/start/auto-pairs"]
 	path = .vim/pack/mypackage/start/auto-pairs
 	url = https://github.com/jiangmiao/auto-pairs.git
+[submodule ".vim/pack/mypackage/start/tabnine-vim"]
+	path = .vim/pack/mypackage/start/tabnine-vim
+	url = git@github.com:zxqfl/tabnine-vim.git
