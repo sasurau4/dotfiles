@@ -208,6 +208,8 @@ if [ "$(uname)" = "Darwin" ]; then
   export PATH=$PATH:$ANDROID_HOME/tools
   export PATH=$PATH:$ANDROID_HOME/tools/bin
   export PATH=$PATH:$ANDROID_HOME/platform-tools
+  # for vpnclient
+  export PATH=$PATH:$HOME/vpnclient
 elif [ "$(expr substr $(uname -s) 1 5)" == 'Linux' ]; then
   # Linux for private
   export ANDROID_HOME=$HOME/Android/Sdk
