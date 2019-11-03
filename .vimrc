@@ -97,9 +97,26 @@ set wildmenu wildmode=list:longest,full
 " 保存するコマンド履歴の数
 set history=5000 
 
+" =========
+" filetype detection start
+" =========
+"
+" Markdown highlight
+autocmd BufNewFile,BufRead *.md set filetype=markdown
+
+" TypeScript
+autocmd BufRead,BufNewFile *.ts set filetype=typescript
+
+" jsx, tsx support
+autocmd bufnewfile,bufread *.jsx set filetype=javascript.jsx
+autocmd bufnewfile,bufread *.tsx set filetype=typescript.tsx
 "manage plugin
 let g:indentline#enable_at_startup = 1
 let g:lightline#enable_at_startup = 1
+
+" =========
+" filetype detection end
+" =========
 
 "settings for lightline
 let g:lightline = {
@@ -239,9 +256,6 @@ if exists("g:loaded_webdevicons")
   call webdevicons#refresh()
 endif
 "
-" Markdown highlight
-autocmd BufNewFile,BufRead *.md set filetype=markdown
-
 " for LanguageClient-neovim
 set hidden
 let g:LanguageClient_autoStart = 1
@@ -259,8 +273,6 @@ nnoremap <silent> <F2> :call LanguageClient_textDocument_rename()<CR>
 nnoremap <F5> :call LanguageClient_contextMenu()<CR>
 set runtimepath+=~/.vim/pack/mypackage/start/LanguageClient-neovim
 
-" TypeScript
-autocmd BufRead,BufNewFile *.ts set filetype=typescript
 
 " for vim-fugitive
 nnoremap <silent> gs :Gstatus<CR> 
