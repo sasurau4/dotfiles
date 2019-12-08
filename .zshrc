@@ -220,8 +220,8 @@ elif [ "$(expr substr $(uname -s) 1 5)" = 'Linux' ]; then
   export PATH=$PATH:$ANDROID_HOME/platform-tools
   export PATH=$PATH:$ANDROID_HOME/ndk-bundle
 
-  # for yarn with nvm
-  # export PATH="$PATH:$HOME/.config/yarn/global/node_modules/.bin/"
+  # for yarn
+  export PATH="$PATH:$HOME/.config/yarn/global/node_modules/.bin/"
 
   # for docker-compose
   fpath=(~/.zsh/completion $fpath)
