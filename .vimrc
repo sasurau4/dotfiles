@@ -75,7 +75,6 @@ set clipboard=unnamedplus,unnamed
 
 "syntax highlight
 syntax enable
-set background=light
 colorscheme solarized
 
 "mode control
@@ -147,18 +146,10 @@ let g:lightline = {
 
 "settings for deoplete.nvim
 let g:deoplete#enable_at_startup = 1
-let g:deoplete#enable_smart_case = 1
-let g:deoplete#auto_complete_delay = 0
-let g:deoplete#auto_complete_start_length = 1
-let g:deoplete#enable_camel_case = 0
-let g:deoplete#enable_ignore_case = 0
-let g:deoplete#enable_refresh_always = 0
-let g:deoplete#file#enable_buffer_path = 1
-let g:deoplete#max_list = 10000
 
 " for deoplete, <C-h>, <BS>: close popup and delete backword char.
-inoremap <expr><C-h> deoplete#smart_close_popup()."\<C-h>"
-inoremap <expr><BS>  deoplete#smart_close_popup()."\<C-h>"
+" inoremap <expr><C-h> deoplete#smart_close_popup()."\<C-h>"
+" inoremap <expr><BS>  deoplete#smart_close_popup()."\<C-h>"
 
 "do not want to move to the next line after the selected word
 inoremap <silent><expr><CR> pumvisible() ? deoplete#close_popup() : "\<CR>"
@@ -196,8 +187,8 @@ autocmd InsertLeave,WinLeave * if exists('w:last_fdm')
             \| endif
 
 "solve too slow problem
-set lazyredraw
-set ttyfast
+"set lazyredraw
+"set ttyfast
 
 "setting for vim-jsx-pretty
 let g:vim_jsx_pretty_colorful_config = 1
@@ -316,9 +307,6 @@ let g:closetag_xhtml_filenames = '*.xhtml,*.erb,*.jsx,*.js,*.tsx'
 let g:closetag_emptyTags_caseSensitive = 1
 let g:closetag_shortcut = '>'
 let g:closetag_close_shortcut = '<leader>>'
-
-" for tabnine
-" set rtp+=~/dotfiles/.vim/pack/mypackage/start/tabnine-vim
 
 " ***************************************************************************
 " * CAUTION: Put below lines at the very end of your vimrc file.            *
