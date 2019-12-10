@@ -40,7 +40,7 @@ echo $(tput setaf 4)Install Deno completed! ✔︎$(tput sgr0)
 
 # deploy
 cd ${DOT_DIRECTORY}
-./scripts/deploy.sh
+./scripts/deploy.sh -none
 
 # run install script about vim plugins
 echo $(tput setaf 4)Build vim plugins.$(tput sgr0)

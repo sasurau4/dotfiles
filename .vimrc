@@ -75,7 +75,6 @@ set clipboard=unnamedplus,unnamed
 
 "syntax highlight
 syntax enable
-set background=light
 colorscheme solarized
 
 "mode control
@@ -147,18 +146,10 @@ let g:lightline = {
 
 "settings for deoplete.nvim
 let g:deoplete#enable_at_startup = 1
-let g:deoplete#enable_smart_case = 1
-let g:deoplete#auto_complete_delay = 0
-let g:deoplete#auto_complete_start_length = 1
-let g:deoplete#enable_camel_case = 0
-let g:deoplete#enable_ignore_case = 0
-let g:deoplete#enable_refresh_always = 0
-let g:deoplete#file#enable_buffer_path = 1
-let g:deoplete#max_list = 10000
 
 " for deoplete, <C-h>, <BS>: close popup and delete backword char.
-inoremap <expr><C-h> deoplete#smart_close_popup()."\<C-h>"
-inoremap <expr><BS>  deoplete#smart_close_popup()."\<C-h>"
+" inoremap <expr><C-h> deoplete#smart_close_popup()."\<C-h>"
+" inoremap <expr><BS>  deoplete#smart_close_popup()."\<C-h>"
 
 "do not want to move to the next line after the selected word
 inoremap <silent><expr><CR> pumvisible() ? deoplete#close_popup() : "\<CR>"
@@ -196,8 +187,8 @@ autocmd InsertLeave,WinLeave * if exists('w:last_fdm')
             \| endif
 
 "solve too slow problem
-set lazyredraw
-set ttyfast
+"set lazyredraw
+"set ttyfast
 
 "setting for vim-jsx-pretty
 let g:vim_jsx_pretty_colorful_config = 1
@@ -257,22 +248,51 @@ if exists("g:loaded_webdevicons")
 endif
 "
 " for LanguageClient-neovim
-set hidden
-let g:LanguageClient_autoStart = 1
-let g:LanguageClient_serverCommands = {
-    \ 'javascript': ['javascript-typescript-stdio'],
-    \ 'javascript.jsx': ['javascript-typescript-stdio'],
-    \ 'typescript': ['javascript-typescript-stdio'],
-    \ 'typescript.tsx': ['javascript-typescript-stdio'],
-    \ 'rust': ['rustup', 'run', 'stable', 'rls'],
-    \ }
-"    \ 'kotlin': ['kotlin-language-server'],
-nnoremap <silent> K :call LanguageClient_textDocument_hover()<CR>
-nnoremap <silent> gd :sb <CR>:call LanguageClient_textDocument_definition()<CR>
-nnoremap <silent> <F2> :call LanguageClient_textDocument_rename()<CR>
-nnoremap <F5> :call LanguageClient_contextMenu()<CR>
-set runtimepath+=~/.vim/pack/mypackage/start/LanguageClient-neovim
+"set hidden
+"let g:LanguageClient_autoStart = 1
+"let g:LanguageClient_serverCommands = {
+"    \ 'javascript': ['javascript-typescript-stdio'],
+"    \ 'javascript.jsx': ['javascript-typescript-stdio'],
+"    \ 'typescript': ['javascript-typescript-stdio'],
+"    \ 'typescript.tsx': ['javascript-typescript-stdio'],
+"    \ 'rust': ['rustup', 'run', 'stable', 'rls'],
+"    \ }
+""    \ 'kotlin': ['kotlin-language-server'],
+"nnoremap <silent> K :call LanguageClient_textDocument_hover()<CR>
+"nnoremap <silent> gd :sb <CR>:call LanguageClient_textDocument_definition()<CR>
+"nnoremap <silent> <F2> :call LanguageClient_textDocument_rename()<CR>
+"nnoremap <F5> :call LanguageClient_contextMenu()<CR>
+"set runtimepath+=~/.vim/pack/mypackage/start/LanguageClient-neovim
 
+" for vim-lsp
+if executable('typescript-language-server')
+    au User lsp_setup call lsp#register_server({
+        \ 'name': 'typescript-language-server',
+        \ 'cmd': {server_info->[&shell, &shellcmdflag, 'typescript-language-server --stdio']},
+        \ 'root_uri':{server_info->lsp#utils#path_to_uri(lsp#utils#find_nearest_parent_file_directory(lsp#utils#get_buffer_path(), 'tsconfig.json'))},
+        \ 'whitelist': ['typescript', 'typescript.tsx'],
+        \ })
+  else
+    echohl ErrorMsg
+    echom 'Sorry, `typescript-language-server` is not installed. See :h vim-lsp-typescript for more details on setup.'
+    echohl NONE
+endif
+if executable('rls')
+    au User lsp_setup call lsp#register_server({
+        \ 'name': 'rls',
+        \ 'cmd': {server_info->['rustup', 'run', 'stable', 'rls']},
+        \ 'workspace_config': {'rust': {'clippy_preference': 'on'}},
+        \ 'whitelist': ['rust'],
+        \ })
+endif
+if executable('typescript-language-server')
+    au User lsp_setup call lsp#register_server({
+      \ 'name': 'javascript support using typescript-language-server',
+      \ 'cmd': { server_info->[&shell, &shellcmdflag, 'typescript-language-server --stdio']},
+      \ 'root_uri': { server_info->lsp#utils#path_to_uri(lsp#utils#find_nearest_parent_directory(lsp#utils#get_buffer_path(), '.git/..'))},
+      \ 'whitelist': ['javascript', 'javascript.jsx', 'javascriptreact']
+      \ })
+endif
 
 " for vim-fugitive
 nnoremap <silent> gs :Gstatus<CR> 
@@ -287,9 +307,6 @@ let g:closetag_xhtml_filenames = '*.xhtml,*.erb,*.jsx,*.js,*.tsx'
 let g:closetag_emptyTags_caseSensitive = 1
 let g:closetag_shortcut = '>'
 let g:closetag_close_shortcut = '<leader>>'
-
-" for tabnine
-set rtp+=~/dotfiles/.vim/pack/mypackage/start/tabnine-vim
 
 " ***************************************************************************
 " * CAUTION: Put below lines at the very end of your vimrc file.            *

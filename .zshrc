@@ -23,6 +23,8 @@ alias gb="git branch"
 alias gpushh="git push origin HEAD"
 alias gpullm="git pull origin master"
 alias gpullh="git pull origin HEAD"
+alias gpullu="git pull upstream master"
+alias grau="git remote add upstream"
 # from Leko's dotfiles
 alias gpr="git push origin HEAD && git symbolic-ref --short HEAD | xargs hub compare"
 # from whinky's dotfiles
@@ -72,7 +74,7 @@ bindkey "^S" history-incremental-search-forward
 #漢のzshから転用
 # LANG
 #
-export LANG=ja_JP.UTF-8
+export LANG=en_US.UTF-8
 
 ## Default shell configuration
 #
@@ -186,9 +188,10 @@ export GOPATH=${HOME}/go
 export PATH="${PATH}:${GOPATH}/bin:/usr/local/go/bin"
 export GOBIN="${GOPATH}/bin"
 
-export NVM_DIR="$HOME/.nvm"
-[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
-[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+# Remove this after migrate to asdf
+#export NVM_DIR="$HOME/.nvm"
+#[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+#[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
 
 # Rust
 export PATH="${PATH}:${HOME}/.cargo/bin"
@@ -210,7 +213,7 @@ if [ "$(uname)" = "Darwin" ]; then
   export PATH=$PATH:$ANDROID_HOME/platform-tools
   # for vpnclient
   export PATH=$PATH:$HOME/vpnclient
-elif [ "$(expr substr $(uname -s) 1 5)" == 'Linux' ]; then
+elif [ "$(expr substr $(uname -s) 1 5)" = 'Linux' ]; then
   # Linux for private
   export ANDROID_HOME=$HOME/Android/Sdk
   export PATH=$PATH:$ANDROID_HOME/emulator
@@ -219,7 +222,7 @@ elif [ "$(expr substr $(uname -s) 1 5)" == 'Linux' ]; then
   export PATH=$PATH:$ANDROID_HOME/platform-tools
   export PATH=$PATH:$ANDROID_HOME/ndk-bundle
 
-  # for yarn with nvm
+  # for yarn
   export PATH="$PATH:$HOME/.config/yarn/global/node_modules/.bin/"
 
   # for docker-compose
@@ -227,13 +230,11 @@ elif [ "$(expr substr $(uname -s) 1 5)" == 'Linux' ]; then
   autoload -Uz compinit && compinit -i
 
   #for rbenv
-  export PATH=$PATH:$HOME/.rbenv/bin
-  eval "$(rbenv init -)"
+  #export PATH=$PATH:$HOME/.rbenv/bin
+  #eval "$(rbenv init -)"
 fi
 
-# tabtab source for serverless package
-# uninstall by removing these lines or running `tabtab uninstall serverless`
-[[ -f /Users/daiki.ihara/hobby/reg-suit/node_modules/tabtab/.completions/serverless.zsh ]] && . /Users/daiki.ihara/hobby/reg-suit/node_modules/tabtab/.completions/serverless.zsh
-# tabtab source for sls package
-# uninstall by removing these lines or running `tabtab uninstall sls`
-[[ -f /Users/daiki.ihara/hobby/reg-suit/node_modules/tabtab/.completions/sls.zsh ]] && . /Users/daiki.ihara/hobby/reg-suit/node_modules/tabtab/.completions/sls.zsh
+# asdf settings
+. $HOME/.asdf/asdf.sh
+
+. $HOME/.asdf/completions/asdf.bash
