@@ -23,6 +23,8 @@ alias gb="git branch"
 alias gpushh="git push origin HEAD"
 alias gpullm="git pull origin master"
 alias gpullh="git pull origin HEAD"
+alias gpullu="git pull upstream master"
+alias grau="git remote add upstream"
 # from Leko's dotfiles
 alias gpr="git push origin HEAD && git symbolic-ref --short HEAD | xargs hub compare"
 # from whinky's dotfiles
@@ -72,7 +74,7 @@ bindkey "^S" history-incremental-search-forward
 #漢のzshから転用
 # LANG
 #
-export LANG=ja_JP.UTF-8
+export LANG=en_US.UTF-8
 
 ## Default shell configuration
 #
