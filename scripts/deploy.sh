@@ -5,22 +5,18 @@ echo $(tput setaf 2)Deploy dotfiles start!.$(tput sgr0)
 
 DOT_DIRECTORY="${HOME}/dotfiles"
 cd ${DOT_DIRECTORY}
+OPTION=${1:-no-update}
 
 echo $(tput setaf 4)Update submodules start.$(tput sgr0)
 git submodule init
 git submodule update --recursive 
 echo $(tput setaf 4)Update submodules done! ✔︎$(tput sgr0)
 
-if [ "$1" = "-u" -o "$1" = "--update" ]
+if [ "$OPTION" = "-u" -o "$OPTION" = "--update" ]
 then
   echo $(tput setaf 4)Pull every submodules start.$(tput sgr0)
   git submodule update --remote --depth 1
   echo $(tput setaf 4)Pull every submodules done! ✔︎$(tput sgr0)
-  echo $(tput setaf 4)Build vim plugins.$(tput sgr0)
-  cd ${DOT_DIRECTORY}/.vim/pack/mypackage/start/LanguageClient-neovim
-  bash install.sh
-  cd ${DOT_DIRECTORY}
-  echo $(tput setaf 4)Build vim plugins done. ✔︎$(tput sgr0)
 fi
 
 echo $(tput setaf 4)Create or update symlinnks for dotfiles$(tput sgr0)

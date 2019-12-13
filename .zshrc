@@ -25,6 +25,8 @@ alias gpullm="git pull origin master"
 alias gpullh="git pull origin HEAD"
 alias gpullu="git pull upstream master"
 alias grau="git remote add upstream"
+alias ghp='cd $(ghq root)/$(ghq list | peco)'
+alias ghb='hub browse $(ghq list | peco | cut -d "/" -f 2,3)'
 # from Leko's dotfiles
 alias gpr="git push origin HEAD && git symbolic-ref --short HEAD | xargs hub compare"
 # from whinky's dotfiles
@@ -184,14 +186,7 @@ case ${OSTYPE} in
 esac
 
 # Golang
-export GOPATH=${HOME}/go
-export PATH="${PATH}:${GOPATH}/bin:/usr/local/go/bin"
-export GOBIN="${GOPATH}/bin"
-
-# Remove this after migrate to asdf
-#export NVM_DIR="$HOME/.nvm"
-#[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
-#[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+# export PATH="${PATH}:/usr/local/go/bin"
 
 # Rust
 export PATH="${PATH}:${HOME}/.cargo/bin"
@@ -224,15 +219,11 @@ elif [ "$(expr substr $(uname -s) 1 5)" = 'Linux' ]; then
 
   # for yarn
   export PATH="$PATH:$HOME/.config/yarn/global/node_modules/.bin/"
-
-  # for docker-compose
-  fpath=(~/.zsh/completion $fpath)
-  autoload -Uz compinit && compinit -i
-
-  #for rbenv
-  #export PATH=$PATH:$HOME/.rbenv/bin
-  #eval "$(rbenv init -)"
 fi
+
+# Completions set
+fpath=(~/.zsh/completions $fpath)
+autoload -Uz compinit && compinit -i
 
 # asdf settings
 . $HOME/.asdf/asdf.sh

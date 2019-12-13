@@ -22,39 +22,50 @@ else
   echo $(tput setaf 4)nerd fonts installed! ✔︎$(tput sgr0)
 fi
 
-# install LSPs
-echo $(tput setaf 4)Install Langage Server Protocols.$(tput sgr0)
-# global install is not good, but no alternative idea.
-yarn global add javascript-typescript-langserver
-echo $(tput setaf 4)Langage Server Protocols installed! ✔︎$(tput sgr0)
-
 # install Rust
 echo $(tput setaf 4)Install Rust.$(tput sgr0)
 curl https://sh.rustup.rs -sSf | sh
 echo $(tput setaf 4)Install Rust completed! ✔︎$(tput sgr0)
 
-# install Deno
-echo $(tput setaf 4)Install Deno.$(tput sgr0)
-url -fsSL https://deno.land/x/install/install.sh | sh
-echo $(tput setaf 4)Install Deno completed! ✔︎$(tput sgr0)
+# install asdf
+if [ -e ${HOME}/.asdf ]; then
+  echo $(tput setaf 4)Install asdf and plugins.$(tput sgr0)
+  git clone https://github.com/asdf-vm/asdf.git ~/.asdf --branch v0.7.5
+  sudo apt install \
+    automake autoconf libreadline-dev \
+    libncurses-dev libssl-dev libyaml-dev \
+    libxslt-dev libffi-dev libtool unixodbc-dev \
+    unzip curl
+
+  asdf plugin-add nodejs https://github.com/asdf-vm/asdf-nodejs.git
+  bash ~/.asdf/plugins/nodejs/bin/import-release-team-keyring
+  asdf plugin-add golang https://github.com/kennyp/asdf-golang.git
+  asdf plugin-add yarn
+  echo $(tput setaf 4)Install asdf and plugins completed! ✔︎$(tput sgr0)
+fi
+
+# install LSPs
+echo $(tput setaf 4)Install Langage Server Protocols.$(tput sgr0)
+# global install is not good, but no alternative idea.
+yarn global add typescript-language-server
+echo $(tput setaf 4)Langage Server Protocols installed! ✔︎$(tput sgr0)
+
 
 # deploy
 cd ${DOT_DIRECTORY}
 ./scripts/deploy.sh -none
 
-# run install script about vim plugins
-echo $(tput setaf 4)Build vim plugins.$(tput sgr0)
-cd ${DOT_DIRECTORY}/.vim/pack/mypackage/start/LanguageClient-neovim
-bash install.sh
-cd ${DOT_DIRECTORY}
-
 echo $(tput setaf 4)Install daily development toolchains depend on platform.$(tput sgr0)
 if [ "$(uname)" = "Darwin" ]; then
   echo $(tput setaf 4)OS is Mac OSX.$(tput sgr0)
   brew install hub
+  brew install peco
+  brew install ghq
 elif [ "$(expr substr $(uname -s) 1 5)" == 'Linux' ]; then
   echo $(tput setaf 4)OS is Linux.$(tput sgr0)
   sudo apt install hub
+  sudo apt install peco
+  GO111MODULE=on go get github.com/motemen/ghq
 fi
 
 echo $(tput setaf 2)initialize dotfiles complete!. ✔︎$(tput sgr0)

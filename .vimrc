@@ -247,23 +247,6 @@ if exists("g:loaded_webdevicons")
   call webdevicons#refresh()
 endif
 "
-" for LanguageClient-neovim
-"set hidden
-"let g:LanguageClient_autoStart = 1
-"let g:LanguageClient_serverCommands = {
-"    \ 'javascript': ['javascript-typescript-stdio'],
-"    \ 'javascript.jsx': ['javascript-typescript-stdio'],
-"    \ 'typescript': ['javascript-typescript-stdio'],
-"    \ 'typescript.tsx': ['javascript-typescript-stdio'],
-"    \ 'rust': ['rustup', 'run', 'stable', 'rls'],
-"    \ }
-""    \ 'kotlin': ['kotlin-language-server'],
-"nnoremap <silent> K :call LanguageClient_textDocument_hover()<CR>
-"nnoremap <silent> gd :sb <CR>:call LanguageClient_textDocument_definition()<CR>
-"nnoremap <silent> <F2> :call LanguageClient_textDocument_rename()<CR>
-"nnoremap <F5> :call LanguageClient_contextMenu()<CR>
-"set runtimepath+=~/.vim/pack/mypackage/start/LanguageClient-neovim
-
 " for vim-lsp
 if executable('typescript-language-server')
     au User lsp_setup call lsp#register_server({
