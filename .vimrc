@@ -147,10 +147,6 @@ let g:lightline = {
 "settings for deoplete.nvim
 let g:deoplete#enable_at_startup = 1
 
-" for deoplete, <C-h>, <BS>: close popup and delete backword char.
-" inoremap <expr><C-h> deoplete#smart_close_popup()."\<C-h>"
-" inoremap <expr><BS>  deoplete#smart_close_popup()."\<C-h>"
-
 "do not want to move to the next line after the selected word
 inoremap <silent><expr><CR> pumvisible() ? deoplete#close_popup() : "\<CR>"
 
