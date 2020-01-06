@@ -200,6 +200,9 @@ fi
 # deno
 export PATH="${PATH}:${HOME}/.deno/bin"
 
+# for yarn
+export PATH="$PATH:$HOME/.config/yarn/global/node_modules/.bin/"
+
 if [ "$(uname)" = "Darwin" ]; then
   # For Android
   export ANDROID_HOME=$HOME/Library/Android/sdk
@@ -217,9 +220,6 @@ elif [ "$(expr substr $(uname -s) 1 5)" = 'Linux' ]; then
   export PATH=$PATH:$ANDROID_HOME/tools/bin
   export PATH=$PATH:$ANDROID_HOME/platform-tools
   export PATH=$PATH:$ANDROID_HOME/ndk-bundle
-
-  # for yarn
-  export PATH="$PATH:$HOME/.config/yarn/global/node_modules/.bin/"
 fi
 
 # Completions set
@@ -230,3 +230,4 @@ autoload -Uz compinit && compinit -i
 . $HOME/.asdf/asdf.sh
 
 . $HOME/.asdf/completions/asdf.bash
+export PATH=/Users/daiki.ihara/.pyenv/versions/3.7.2/bin:$PATH
