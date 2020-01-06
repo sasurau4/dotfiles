@@ -27,6 +27,7 @@ alias gpullu="git pull upstream master"
 alias grau="git remote add upstream"
 alias ghp='cd $(ghq root)/$(ghq list | peco)'
 alias ghb='hub browse $(ghq list | peco | cut -d "/" -f 2,3)'
+alias gcop="git branch | peco | xargs git checkout"
 # from Leko's dotfiles
 alias gpr="git push origin HEAD && git symbolic-ref --short HEAD | xargs hub compare"
 # from whinky's dotfiles
