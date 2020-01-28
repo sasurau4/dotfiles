@@ -198,7 +198,8 @@ if [ -f ~/.config/exercism/exercism_completion.zsh ]; then
 fi
 
 # deno
-export PATH="${PATH}:${HOME}/.deno/bin"
+export DENO_INSTALL="/home/sasurau4/.local"
+export PATH="$DENO_INSTALL/bin:$PATH"
 
 # for yarn
 export PATH="$PATH:$HOME/.config/yarn/global/node_modules/.bin/"
