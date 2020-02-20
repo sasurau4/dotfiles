@@ -223,6 +223,8 @@ elif [ "$(expr substr $(uname -s) 1 5)" = 'Linux' ]; then
   export PATH=$PATH:$ANDROID_HOME/ndk-bundle
 fi
 
+eval "$(starship init bash)"
+
 # Completions set
 fpath=(~/.zsh/completions $fpath)
 autoload -Uz compinit && compinit -i

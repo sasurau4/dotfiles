@@ -1,0 +1,2 @@
+EXCLUDES="scripts"
+DOTFILES_DIRS="$HOME/dotfiles"
