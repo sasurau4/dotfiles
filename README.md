@@ -9,3 +9,8 @@ cd dotfiles
 env RCRC=$HOME/dotfiles/rcrc rcup
 ```
 
+```
+fisher add decors/fish-ghq
+fisher add oh-my-fish/plugin-peco
+```
+
