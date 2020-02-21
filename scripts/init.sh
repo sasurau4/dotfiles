@@ -12,6 +12,9 @@ pip3 install --upgrade neovim
 pip3 install --upgrade pynvim
 echo $(tput setaf 4)neovim installed! ✔︎$(tput sgr0)
 
+# install starship
+curl -fsSL https://starship.rs/install.sh | bash
+
 # install nerd fonts
 if [ -e ${HOME}/nerd-fonts ]; then
   echo $(tput setaf 4)Already exists nerd-fonts dir, skip install.$(tput sgr0)
@@ -34,7 +37,9 @@ yarn global add typescript-language-server
 echo $(tput setaf 4)Langage Server Protocols installed! ✔︎$(tput sgr0)
 
 # Tools installed via cargo
-cargo install ripgrep
+if ! [ -x "$(command -v rg)"]; then
+  cargo install ripgrep
+fi
 
 # deploy
 cd ${DOT_DIRECTORY}
