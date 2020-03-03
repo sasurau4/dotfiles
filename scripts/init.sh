@@ -12,6 +12,9 @@ pip3 install --upgrade neovim
 pip3 install --upgrade pynvim
 echo $(tput setaf 4)neovim installed! ✔︎$(tput sgr0)
 
+# install starship
+curl -fsSL https://starship.rs/install.sh | bash
+
 # install nerd fonts
 if [ -e ${HOME}/nerd-fonts ]; then
   echo $(tput setaf 4)Already exists nerd-fonts dir, skip install.$(tput sgr0)
@@ -34,7 +37,9 @@ yarn global add typescript-language-server
 echo $(tput setaf 4)Langage Server Protocols installed! ✔︎$(tput sgr0)
 
 # Tools installed via cargo
-cargo install ripgrep
+if ! [ -x "$(command -v rg)"]; then
+  cargo install ripgrep
+fi
 
 # deploy
 cd ${DOT_DIRECTORY}
@@ -46,16 +51,27 @@ if [ "$(uname)" = "Darwin" ]; then
   brew install hub
   brew install peco
   brew install ghq
-  // For asdf-nodejs
+  # For asdf-nodejs
   brew install gpg
   brew install coreutils
+  # rcm
+  brew tap thoughtbot/formulae
+  brew install rcm
+  # fish
+  brew install fish
 elif [ "$(expr substr $(uname -s) 1 5)" == 'Linux' ]; then
   echo $(tput setaf 4)OS is Linux.$(tput sgr0)
-  // For asdf-nodejs
-  apt-get install gpg
-  apt-get install dirmngr
+  # for rcm
+  sudo add-apt-repository ppa:martin-frost/thoughtbot-rcm
+  sudo apt-get update
+  sudo apt-get install rcm
+  # For asdf-nodejs
+  sudo apt-get install gpg
+  sudo apt-get install dirmngr
+  # For daily util
   sudo apt install hub
   sudo apt install peco
+  sudo apt install fish
   GO111MODULE=on go get github.com/motemen/ghq
 fi
 
@@ -75,5 +91,9 @@ if [ -e ${HOME}/.asdf ]; then
   asdf plugin-add yarn
   echo $(tput setaf 4)Install asdf and plugins completed! ✔︎$(tput sgr0)
 fi
+
+echo $(tput setaf 4)Login shell chainging.$(tput sgr0)
+chsh -s /usr/bin/fish
+echo $(tput setaf 4)Login shell changed ✔︎$(tput sgr0)
 
 echo $(tput setaf 2)initialize dotfiles complete!. ✔︎$(tput sgr0)

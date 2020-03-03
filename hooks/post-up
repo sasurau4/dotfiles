@@ -1,0 +1,10 @@
+#!/bin/sh
+
+set -eu
+
+DOT_DIRECTORY="${HOME}/dotfiles"
+
+ln -snfv ${DOT_DIRECTORY}/.vim ${HOME}/.vim
+
+mkdir -p ${HOME}/.config/fish/completions; cp ~/.asdf/completions/asdf.fish ~/.config/fish/completions
+

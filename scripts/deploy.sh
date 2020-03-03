@@ -4,6 +4,7 @@ set -eu
 echo $(tput setaf 2)Deploy dotfiles start!.$(tput sgr0)
 
 DOT_DIRECTORY="${HOME}/dotfiles"
+CONFIG_DIR="${HOME}/.config"
 cd ${DOT_DIRECTORY}
 OPTION=${1:-no-update}
 
@@ -18,17 +19,6 @@ then
   git submodule update --remote --depth 1
   echo $(tput setaf 4)Pull every submodules done! ✔︎$(tput sgr0)
 fi
-
-echo $(tput setaf 4)Create or update symlinnks for dotfiles$(tput sgr0)
-for f in .??*
-do
-  # 無視したいファイルやディレクトリはこんな風に追加してね
-  [ ${f} = ".git" ] && continue
-  [ ${f} = ".gitignore" ] && continue
-  [ ${f} = ".gitmodules" ] && continue
-  ln -snfv ${DOT_DIRECTORY}/${f} ${HOME}/${f}
-done
-echo $(tput setaf 4)Create or update symlinnks for dotfiles done! ✔︎$(tput sgr0)
 
 echo $(tput setaf 4)Delete Untracked vim plugins.$(tput sgr0)
 tput setaf 1 && git clean -diff .vim/pack/ && tput sgr0
