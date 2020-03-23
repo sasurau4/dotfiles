@@ -35,7 +35,7 @@ set showmode
 nnoremap j gj
 nnoremap k gk
 "All files folding by syntax
-:set foldmethod=syntax
+set foldmethod=syntax
 
 "Tab系
 "visualize tab

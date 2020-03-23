@@ -7,10 +7,9 @@ DOT_DIRECTORY="${HOME}/dotfiles"
 cd ${DOT_DIRECTORY}
 
 # install neovim
-echo $(tput setaf 4)Install neovim from pip3.$(tput sgr0)
-pip3 install --upgrade neovim
-pip3 install --upgrade pynvim
-echo $(tput setaf 4)neovim installed! ✔︎$(tput sgr0)
+echo $(tput setaf 4)Install python related packages from pip3.$(tput sgr0)
+pip3 install -U msgpack
+echo $(tput setaf 4)python packages installed! ✔︎$(tput sgr0)
 
 # install starship
 curl -fsSL https://starship.rs/install.sh | bash
@@ -59,6 +58,8 @@ if [ "$(uname)" = "Darwin" ]; then
   brew install rcm
   # fish
   brew install fish
+  brew install neovim
+
 elif [ "$(expr substr $(uname -s) 1 5)" == 'Linux' ]; then
   echo $(tput setaf 4)OS is Linux.$(tput sgr0)
   # for rcm
@@ -72,7 +73,8 @@ elif [ "$(expr substr $(uname -s) 1 5)" == 'Linux' ]; then
   sudo apt install hub
   sudo apt install peco
   sudo apt install fish
-  GO111MODULE=on go get github.com/motemen/ghq
+  sudo apt install neovim
+  go get github.com/x-motemen/ghq
 fi
 
 # install asdf
