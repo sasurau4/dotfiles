@@ -288,6 +288,9 @@ let g:closetag_emptyTags_caseSensitive = 1
 let g:closetag_shortcut = '>'
 let g:closetag_close_shortcut = '<leader>>'
 
+" for rust-vim
+let g:rustfmt_autosave = 1
+
 " ***************************************************************************
 " * CAUTION: Put below lines at the very end of your vimrc file.            *
 " * For more details, https://github.com/w0rp/ale#generating-vim-help-files *

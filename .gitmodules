@@ -96,3 +96,6 @@
 [submodule ".vim/pack/mypackage/start/vim-fish"]
 	path = .vim/pack/mypackage/start/vim-fish
 	url = git@github.com:blankname/vim-fish.git
+[submodule ".vim/pack/mypackage/start/rust.vim"]
+	path = .vim/pack/mypackage/start/rust.vim
+	url = git@github.com:rust-lang/rust.vim.git
