@@ -66,6 +66,7 @@
 [submodule ".vim/pack/mypackage/start/vim-styled-components"]
 	path = .vim/pack/mypackage/start/vim-styled-components
 	url = https://github.com/styled-components/vim-styled-components.git
+	branch = main
 [submodule ".vim/pack/mypackage/start/vim-vue"]
 	path = .vim/pack/mypackage/start/vim-vue
 	url = https://github.com/posva/vim-vue.git
