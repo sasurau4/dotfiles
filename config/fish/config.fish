@@ -11,6 +11,9 @@ set -x PATH DIRENV_LOG_FORMAT $PATH
 # Yarn
 set -x PATH ~/.yarn/bin $PATH
 
+# cargo
+set -x PATH $HOME/.cargo/bin $PATH
+
 switch (uname)
 case Darwin
   # # For Android
