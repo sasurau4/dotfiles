@@ -61,9 +61,20 @@ alias gpullh 'git pull origin HEAD'
 alias gpullu 'git pull upstream master'
 alias grau 'git remote add upstream'
 alias ghp 'cd (ghq root)/(ghq list | peco)'
-alias ghb 'hub browse (ghq list | peco | cut -d "/" -f 2,3)'
 alias gcop "git branch -a | peco | xargs git checkout"
-alias gpr "git push origin HEAD && git symbolic-ref --short HEAD | xargs hub compare"
+alias gpr "git push origin HEAD && gh pr create --web --fill"
+function gfork
+  set -l ORIGINAL_TARGET $argv[1]
+  echo ORIGINAL_TARGET is $ORIGINAL_TARGET
+  set -l OWNER (string split / $ORIGINAL_TARGET)[1]
+  set -l REPO_NAME (string split / $ORIGINAL_TARGET)[2]
+  echo OWNER is $OWNER
+  echo REPO_NAME is $REPO_NAME
+  ghq get -p $ORIGINAL_TARGET
+  mv (ghq root)/github.com/$ORIGINAL_TARGET/ (ghq root)/github.com/sasurau4/$REPO_NAME/
+  cd (ghq root)/github.com/sasurau4/$REPO_NAME
+  gh repo fork --remote=true --clone=false
+end
 
 # apt
 alias sagu "sudo apt-get update && sudo apt-get -y upgrade && sudo apt-get -y dist-upgrade && sudo apt-get -y autoremove && sudo apt-get -y autoclean"
