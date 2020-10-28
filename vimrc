@@ -35,7 +35,7 @@ set showmode
 nnoremap j gj
 nnoremap k gk
 "All files folding by syntax
-set foldmethod=syntax
+"set foldmethod=syntax
 
 "Tab系
 "visualize tab
@@ -163,6 +163,7 @@ let g:NEDTreeLimitedSyntax = 1
 
 "settings for vim-javascript
 let g:javascript_plugin_jsdoc = 1
+
 augroup javascript_folding
     au!
     au FileType javascript setlocal foldmethod=syntax

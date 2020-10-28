@@ -6,3 +6,5 @@
 	ui = true
 [pull]
 	rebase = false
+[pack]
+	useSparse = true

@@ -47,7 +47,7 @@ cd ${DOT_DIRECTORY}
 echo $(tput setaf 4)Install daily development toolchains depend on platform.$(tput sgr0)
 if [ "$(uname)" = "Darwin" ]; then
   echo $(tput setaf 4)OS is Mac OSX.$(tput sgr0)
-  brew install hub
+  brew install gh
   brew install peco
   brew install ghq
   # For asdf-nodejs
@@ -70,10 +70,14 @@ elif [ "$(expr substr $(uname -s) 1 5)" == 'Linux' ]; then
   sudo apt-get install gpg
   sudo apt-get install dirmngr
   # For daily util
-  sudo apt install hub
   sudo apt install peco
   sudo apt install fish
   sudo apt install neovim
+  # For gh
+  sudo apt-key adv --keyserver keyserver.ubuntu.com --recv-key C99B11DEB97541F0
+  sudo apt-add-repository https://cli.github.com/packages
+  sudo apt install gh
+  # ghq
   go get github.com/x-motemen/ghq
 fi
 
