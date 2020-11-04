@@ -100,3 +100,6 @@
 [submodule ".vim/pack/mypackage/start/rust.vim"]
 	path = .vim/pack/mypackage/start/rust.vim
 	url = git@github.com:rust-lang/rust.vim.git
+[submodule ".vim/pack/mypackage/start/vim-lsp-settings"]
+	path = .vim/pack/mypackage/start/vim-lsp-settings
+	url = git@github.com:mattn/vim-lsp-settings.git
