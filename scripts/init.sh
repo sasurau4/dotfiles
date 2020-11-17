@@ -29,12 +29,6 @@ echo $(tput setaf 4)Install Rust.$(tput sgr0)
 curl https://sh.rustup.rs -sSf | sh
 echo $(tput setaf 4)Install Rust completed! ✔︎$(tput sgr0)
 
-# install LSPs
-echo $(tput setaf 4)Install Langage Server Protocols.$(tput sgr0)
-# global install is not good, but no alternative idea.
-yarn global add typescript-language-server
-echo $(tput setaf 4)Langage Server Protocols installed! ✔︎$(tput sgr0)
-
 # Tools installed via cargo
 if ! [ -x "$(command -v rg)"]; then
   cargo install ripgrep
@@ -79,17 +73,20 @@ elif [ "$(expr substr $(uname -s) 1 5)" == 'Linux' ]; then
   sudo apt install gh
   # ghq
   go get github.com/x-motemen/ghq
-fi
-
-# install asdf
-if [ -e ${HOME}/.asdf ]; then
-  echo $(tput setaf 4)Install asdf and plugins.$(tput sgr0)
-  git clone https://github.com/asdf-vm/asdf.git ~/.asdf --branch v0.7.5
+  # asdf 
   sudo apt install \
     automake autoconf libreadline-dev \
     libncurses-dev libssl-dev libyaml-dev \
     libxslt-dev libffi-dev libtool unixodbc-dev \
     unzip curl
+fi
+
+# install asdf
+if [ -e ${HOME}/.asdf ]; then
+  echo $(tput setaf 4)Already exists .asdf dir, skip install.$(tput sgr0)
+else
+  echo $(tput setaf 4)Install asdf and plugins.$(tput sgr0)
+  git clone https://github.com/asdf-vm/asdf.git ~/.asdf --branch v0.7.5
 
   asdf plugin-add nodejs https://github.com/asdf-vm/asdf-nodejs.git
   bash ~/.asdf/plugins/nodejs/bin/import-release-team-keyring
