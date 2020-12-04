@@ -63,6 +63,7 @@ alias grau 'git remote add upstream'
 alias ghp 'cd (ghq root)/(ghq list | peco)'
 alias gcop "git branch -a | peco | xargs git checkout"
 alias gpr "git push origin HEAD && gh pr create --web --fill"
+alias grebasei 'git rebase -i (git log -n 1 upstream/master --pretty=format:"%H")'
 function gfork
   set -l ORIGINAL_TARGET $argv[1]
   echo ORIGINAL_TARGET is $ORIGINAL_TARGET
