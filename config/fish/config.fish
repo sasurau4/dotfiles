@@ -5,8 +5,8 @@ starship init fish | source
 source ~/.asdf/asdf.fish
 
 # direnv
-eval (direnv hook fish)
-set -x PATH DIRENV_LOG_FORMAT $PATH
+direnv hook fish | source
+# set -x PATH DIRENV_LOG_FORMAT $PATH
 
 # Yarn
 set -x PATH ~/.yarn/bin $PATH

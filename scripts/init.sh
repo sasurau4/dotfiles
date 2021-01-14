@@ -8,7 +8,7 @@ cd ${DOT_DIRECTORY}
 
 # install neovim
 echo $(tput setaf 4)Install python related packages from pip3.$(tput sgr0)
-pip3 install -U msgpack
+pip3 install --upgrade --user msgpack
 echo $(tput setaf 4)python packages installed! ✔︎$(tput sgr0)
 
 # install starship
@@ -41,6 +41,7 @@ cd ${DOT_DIRECTORY}
 echo $(tput setaf 4)Install daily development toolchains depend on platform.$(tput sgr0)
 if [ "$(uname)" = "Darwin" ]; then
   echo $(tput setaf 4)OS is Mac OSX.$(tput sgr0)
+  /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
   brew install gh
   brew install peco
   brew install ghq
@@ -53,6 +54,9 @@ if [ "$(uname)" = "Darwin" ]; then
   # fish
   brew install fish
   brew install neovim
+
+  # For shell change
+  echo "$(which fish)" | sudo tee -a /etc/shells
 
 elif [ "$(expr substr $(uname -s) 1 5)" == 'Linux' ]; then
   echo $(tput setaf 4)OS is Linux.$(tput sgr0)
@@ -86,17 +90,21 @@ if [ -e ${HOME}/.asdf ]; then
   echo $(tput setaf 4)Already exists .asdf dir, skip install.$(tput sgr0)
 else
   echo $(tput setaf 4)Install asdf and plugins.$(tput sgr0)
-  git clone https://github.com/asdf-vm/asdf.git ~/.asdf --branch v0.7.5
+  git clone https://github.com/asdf-vm/asdf.git ~/.asdf --branch v0.8.0
 
   asdf plugin-add nodejs https://github.com/asdf-vm/asdf-nodejs.git
   bash ~/.asdf/plugins/nodejs/bin/import-release-team-keyring
   asdf plugin-add golang https://github.com/kennyp/asdf-golang.git
   asdf plugin-add yarn
+  asdf plugin-add direnv
+  asdf install direnv latest
+  asdf global direnv $(asdf latest direnv)
+  direnv allow
   echo $(tput setaf 4)Install asdf and plugins completed! ✔︎$(tput sgr0)
 fi
 
 echo $(tput setaf 4)Login shell chainging.$(tput sgr0)
-chsh -s /usr/bin/fish
+chsh -s $(which fish)
 echo $(tput setaf 4)Login shell changed ✔︎$(tput sgr0)
 
 echo $(tput setaf 2)initialize dotfiles complete!. ✔︎$(tput sgr0)
