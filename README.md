@@ -16,3 +16,5 @@ fisher install decors/fish-ghq
 fisher install oh-my-fish/plugin-peco
 ```
 
+If you on Mac, `brew install vim` and conirm version with `+python3`
+You on Linux, use `install-vim.sh`
