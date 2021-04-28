@@ -27,6 +27,8 @@ case Linux
   # Linux for private
   set -x ANDROID_HOME $HOME/Android/Sdk
   set -x PATH ANDROID_HOME $PATH
+  # eb command
+  set -x PATH $HOME/.ebcli-virtual-env/executables $PATH
 end
 
 set -x PATH $ANDROID_HOME/emulator $PATH
