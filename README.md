@@ -3,7 +3,7 @@
 ### Initial setup
 
 ```
-git clone git@github.com:sasurau4/dotfiles.git 
+git clone git@github.com:sasurau4/dotfiles.git
 cd dotfiles
 ./scripts/init.sh
 env RCRC=$HOME/dotfiles/rcrc rcup

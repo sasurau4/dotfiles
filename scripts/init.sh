@@ -103,6 +103,10 @@ else
   echo $(tput setaf 4)Install asdf and plugins completed! ✔︎$(tput sgr0)
 fi
 
+curl -sL https://git.io/fisher | source && fisher install jorgebucaran/fisher
+fisher install decors/fish-ghq
+fisher install oh-my-fish/plugin-peco
+
 echo $(tput setaf 4)Login shell chainging.$(tput sgr0)
 chsh -s $(which fish)
 echo $(tput setaf 4)Login shell changed ✔︎$(tput sgr0)
