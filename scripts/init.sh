@@ -103,9 +103,15 @@ else
   echo $(tput setaf 4)Install asdf and plugins completed! ✔︎$(tput sgr0)
 fi
 
+echo $(tput setaf 4)Setup fisher and fish plugins.$(tput sgr0)
 curl -sL https://git.io/fisher | source && fisher install jorgebucaran/fisher
 fisher install decors/fish-ghq
 fisher install oh-my-fish/plugin-peco
+echo $(tput setaf 4)Setup fisher and fish plugins end ✔$(tput sgr0)
+
+echo $(tput setaf 4)Setup nextdns.$(tput sgr0)
+sh -c 'sh -c "$(curl -sL https://nextdns.io/install)"'
+echo $(tput setaf 4)Setup nextdns end ✔$(tput sgr0)
 
 echo $(tput setaf 4)Login shell chainging.$(tput sgr0)
 chsh -s $(which fish)
