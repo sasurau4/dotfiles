@@ -44,7 +44,6 @@ if [ "$(uname)" = "Darwin" ]; then
   /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
   brew install gh
   brew install peco
-  brew install ghq
   # For asdf-nodejs
   brew install gpg
   brew install coreutils
@@ -58,10 +57,11 @@ if [ "$(uname)" = "Darwin" ]; then
   # For shell change
   echo "$(which fish)" | sudo tee -a /etc/shells
 
-elif [ "$(expr substr $(uname -s) 1 5)" == 'Linux' ]; then
+elif [ "$(expr substr $(uname -s) 1 5)" = "Linux" ]; then
   echo $(tput setaf 4)OS is Linux.$(tput sgr0)
   # for rcm
-  sudo add-apt-repository ppa:martin-frost/thoughtbot-rcm
+  sudo wget -q https://apt.thoughtbot.com/thoughtbot.gpg.key -O /etc/apt/trusted.gpg.d/thoughtbot.gpg
+  echo "deb https://apt.thoughtbot.com/debian/ stable main" | sudo tee /etc/apt/sources.list.d/thoughtbot.list
   sudo apt-get update
   sudo apt-get install rcm
   # For asdf-nodejs
@@ -72,35 +72,10 @@ elif [ "$(expr substr $(uname -s) 1 5)" == 'Linux' ]; then
   sudo apt install fish
   sudo apt install neovim
   # For gh
-  sudo apt-key adv --keyserver keyserver.ubuntu.com --recv-key C99B11DEB97541F0
-  sudo apt-add-repository https://cli.github.com/packages
+  curl -fsSL https://cli.github.com/packages/githubcli-archive-keyring.gpg | sudo gpg --dearmor -o /usr/share/keyrings/githubcli-archive-keyring.gpg
+  echo "deb [arch=$(dpkg --print-architecture) signed-by=/usr/share/keyrings/githubcli-archive-keyring.gpg] https://cli.github.com/packages stable main" | sudo tee /etc/apt/sources.list.d/github-cli.list > /dev/null
+  sudo apt-get update
   sudo apt install gh
-  # ghq
-  go get github.com/x-motemen/ghq
-  # asdf 
-  sudo apt install \
-    automake autoconf libreadline-dev \
-    libncurses-dev libssl-dev libyaml-dev \
-    libxslt-dev libffi-dev libtool unixodbc-dev \
-    unzip curl
-fi
-
-# install asdf
-if [ -e ${HOME}/.asdf ]; then
-  echo $(tput setaf 4)Already exists .asdf dir, skip install.$(tput sgr0)
-else
-  echo $(tput setaf 4)Install asdf and plugins.$(tput sgr0)
-  git clone https://github.com/asdf-vm/asdf.git ~/.asdf --branch v0.8.0
-
-  asdf plugin-add nodejs https://github.com/asdf-vm/asdf-nodejs.git
-  bash ~/.asdf/plugins/nodejs/bin/import-release-team-keyring
-  asdf plugin-add golang https://github.com/kennyp/asdf-golang.git
-  asdf plugin-add yarn
-  asdf plugin-add direnv
-  asdf install direnv latest
-  asdf global direnv $(asdf latest direnv)
-  direnv allow
-  echo $(tput setaf 4)Install asdf and plugins completed! ✔︎$(tput sgr0)
 fi
 
 echo $(tput setaf 4)Setup fisher and fish plugins.$(tput sgr0)
@@ -116,5 +91,32 @@ echo $(tput setaf 4)Setup nextdns end ✔$(tput sgr0)
 echo $(tput setaf 4)Login shell chainging.$(tput sgr0)
 chsh -s $(which fish)
 echo $(tput setaf 4)Login shell changed ✔︎$(tput sgr0)
+
+# install asdf
+if [ -e ${HOME}/.asdf ]; then
+  echo $(tput setaf 4)Already exists .asdf dir, skip install.$(tput sgr0)
+else
+  echo $(tput setaf 4)Install asdf and plugins.$(tput sgr0)
+  git clone https://github.com/asdf-vm/asdf.git ~/.asdf --branch v0.8.0
+  . $HOME/.asdf/asdf.sh
+
+  asdf plugin add nodejs
+  asdf install nodejs latest
+  asdf global nodejs $(asdf latest nodejs)
+
+  asdf plugin add yarn
+  asdf install yarn latest
+  asdf global yarn $(asdf latest yarn)
+
+  asdf plugin add ghq
+  asdf install ghq latest
+  asdf global ghq $(asdf latest ghq)
+
+  asdf plugin add direnv
+  asdf install direnv latest
+  asdf global direnv $(asdf latest direnv)
+  direnv allow
+  echo $(tput setaf 4)Install asdf and plugins completed! ✔︎$(tput sgr0)
+fi
 
 echo $(tput setaf 2)initialize dotfiles complete!. ✔︎$(tput sgr0)
