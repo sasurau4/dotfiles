@@ -70,19 +70,13 @@ elif [ "$(expr substr $(uname -s) 1 5)" = "Linux" ]; then
   # For daily util
   sudo apt install peco
   sudo apt install fish
-  sudo apt install neovim
+  sudo apt install vim
   # For gh
   curl -fsSL https://cli.github.com/packages/githubcli-archive-keyring.gpg | sudo gpg --dearmor -o /usr/share/keyrings/githubcli-archive-keyring.gpg
   echo "deb [arch=$(dpkg --print-architecture) signed-by=/usr/share/keyrings/githubcli-archive-keyring.gpg] https://cli.github.com/packages stable main" | sudo tee /etc/apt/sources.list.d/github-cli.list > /dev/null
   sudo apt-get update
   sudo apt install gh
 fi
-
-echo $(tput setaf 4)Setup fisher and fish plugins.$(tput sgr0)
-curl -sL https://git.io/fisher | source && fisher install jorgebucaran/fisher
-fisher install decors/fish-ghq
-fisher install oh-my-fish/plugin-peco
-echo $(tput setaf 4)Setup fisher and fish plugins end ✔$(tput sgr0)
 
 echo $(tput setaf 4)Setup nextdns.$(tput sgr0)
 sh -c 'sh -c "$(curl -sL https://nextdns.io/install)"'
@@ -96,27 +90,9 @@ echo $(tput setaf 4)Login shell changed ✔︎$(tput sgr0)
 if [ -e ${HOME}/.asdf ]; then
   echo $(tput setaf 4)Already exists .asdf dir, skip install.$(tput sgr0)
 else
-  echo $(tput setaf 4)Install asdf and plugins.$(tput sgr0)
+  echo $(tput setaf 4)Install asdf .$(tput sgr0)
   git clone https://github.com/asdf-vm/asdf.git ~/.asdf --branch v0.8.0
-  . $HOME/.asdf/asdf.sh
-
-  asdf plugin add nodejs
-  asdf install nodejs latest
-  asdf global nodejs $(asdf latest nodejs)
-
-  asdf plugin add yarn
-  asdf install yarn latest
-  asdf global yarn $(asdf latest yarn)
-
-  asdf plugin add ghq
-  asdf install ghq latest
-  asdf global ghq $(asdf latest ghq)
-
-  asdf plugin add direnv
-  asdf install direnv latest
-  asdf global direnv $(asdf latest direnv)
-  direnv allow
-  echo $(tput setaf 4)Install asdf and plugins completed! ✔︎$(tput sgr0)
+  echo $(tput setaf 4)Install asdf completed! ✔︎$(tput sgr0)
 fi
 
-echo $(tput setaf 2)initialize dotfiles complete!. ✔︎$(tput sgr0)
+echo $(tput setaf 2)initialize dotfiles complete!. ✔︎ Please run post-init$(tput sgr0)

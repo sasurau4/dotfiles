@@ -9,11 +9,10 @@ cd dotfiles
 env RCRC=$HOME/dotfiles/rcrc rcup
 ```
 
-Install [fisher](https://github.com/jorgebucaran/fisher)
+then logout, login and run with fish
 
 ```
-fisher install decors/fish-ghq
-fisher install oh-my-fish/plugin-peco
+./scripts/post-install.sh
 ```
 
 If you on Mac, `brew install vim` and conirm version with `+python3`
