@@ -4,6 +4,7 @@
 [core]
 	editor = vim
 	ui = true
+	mergeoptions = --no-edit
 [pull]
 	rebase = false
 [pack]
