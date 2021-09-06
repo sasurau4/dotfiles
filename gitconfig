@@ -5,6 +5,7 @@
 	editor = vim
 	ui = true
 	mergeoptions = --no-edit
+	excludesFile = ~/.gitignore_global
 [pull]
 	rebase = false
 [pack]

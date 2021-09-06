@@ -74,7 +74,7 @@ autocmd QuickFixCmdPost *grep* cwindow
 set clipboard=unnamedplus,unnamed
 
 "syntax highlight
-syntax enable
+syntax off
 colorscheme solarized
 
 "mode control
