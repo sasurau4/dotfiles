@@ -41,9 +41,6 @@
 [submodule ".vim/pack/mypackage/start/vim-nerdtree-syntax-highlight"]
 	path = .vim/pack/mypackage/start/vim-nerdtree-syntax-highlight
 	url = https://github.com/tiagofumo/vim-nerdtree-syntax-highlight.git
-[submodule ".vim/pack/mypackage/start/deoplete.nvim"]
-	path = .vim/pack/mypackage/start/deoplete.nvim
-	url = https://github.com/Shougo/deoplete.nvim.git
 [submodule ".vim/pack/mypackage/start/nvim-yarp"]
 	path = .vim/pack/mypackage/start/nvim-yarp
 	url = https://github.com/roxma/nvim-yarp.git

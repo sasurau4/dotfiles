@@ -144,12 +144,6 @@ let g:lightline = {
       \ }
 
 
-"settings for deoplete.nvim
-let g:deoplete#enable_at_startup = 1
-
-"do not want to move to the next line after the selected word
-inoremap <silent><expr><CR> pumvisible() ? deoplete#close_popup() : "\<CR>"
-
 "settings for denite
 "let g:python3_host_prog = expand('/usr/bin/python3')
 
