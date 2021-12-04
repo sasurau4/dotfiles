@@ -10,3 +10,5 @@
 	rebase = false
 [pack]
 	useSparse = true
+[init]
+	defaultBranch = main
