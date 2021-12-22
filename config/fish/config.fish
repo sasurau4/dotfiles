@@ -21,8 +21,9 @@ case Darwin
   set -x PATH ANDROID_HOME $PATH
   # # for vpnclient
   set -x PATH $HOME/vpnclient $PATH
-  # # SDKROOT
-  # # set -x SDKROOT (env DEVELOPER_DIR=/Library/Developer/CommandLineTools xcrun --sdk macosx --show-sdk-path)
+  # brew
+  set -x PATH /opt/homebrew/bin $PATH
+  /opt/homebrew/bin/brew shellenv
 case Linux
   # Linux for private
   set -x ANDROID_HOME $HOME/Android/Sdk

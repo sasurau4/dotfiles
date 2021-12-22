@@ -106,7 +106,7 @@ if [ -e ${HOME}/.asdf ]; then
   echo $(tput setaf 4)Already exists .asdf dir, skip install.$(tput sgr0)
 else
   echo $(tput setaf 4)Install asdf .$(tput sgr0)
-  git clone https://github.com/asdf-vm/asdf.git ~/.asdf --branch v0.8.0
+  git clone https://github.com/asdf-vm/asdf.git ~/.asdf --branch v0.9.0
   echo $(tput setaf 4)Install asdf completed! ✔︎$(tput sgr0)
 fi
 
