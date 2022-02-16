@@ -66,6 +66,7 @@ alias grsoa "git remote set-head origin --auto"
 alias gcod "git switch (git symbolic-ref refs/remotes/origin/HEAD --short | sed 's/origin\///')"
 alias gpr "gh pr create --web"
 alias grebasei 'git rebase -i (git log -n 1 upstream/master --pretty=format:"%H")'
+## Usage gfork sasurau4/profile
 function gfork
   set -l ORIGINAL_TARGET $argv[1]
   echo ORIGINAL_TARGET is $ORIGINAL_TARGET
