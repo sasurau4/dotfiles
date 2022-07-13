@@ -25,6 +25,12 @@ case Darwin
   set -x PATH /opt/homebrew/bin $PATH
   /opt/homebrew/bin/brew shellenv
 case Linux
+  if uname -r | sed -n 's/.*\( *Microsoft *\).*/\1/ip';
+      # For WSL2
+      set -x BROWSER wslview
+    else 
+      # For Ubuntu
+  end
   # Linux for private
   set -x ANDROID_HOME $HOME/Android/Sdk
   set -x PATH ANDROID_HOME $PATH

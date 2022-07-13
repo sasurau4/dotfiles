@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/bin/bash
 
 set -eu
 echo $(tput setaf 2)initialize dotfiles start!.$(tput sgr0)
@@ -7,12 +7,10 @@ DOT_DIRECTORY="${HOME}/dotfiles"
 cd ${DOT_DIRECTORY}
 
 # install neovim
-echo $(tput setaf 4)Install python related packages from pip3.$(tput sgr0)
-pip3 install --upgrade --user msgpack
-echo $(tput setaf 4)python packages installed! ✔︎$(tput sgr0)
+# echo $(tput setaf 4)Install python related packages from pip3.$(tput sgr0)
+# pip3 install --upgrade --user msgpack
+# echo $(tput setaf 4)python packages installed! ✔︎$(tput sgr0)
 
-# install starship
-curl -fsSL https://starship.rs/install.sh | bash
 
 # install nerd fonts
 if [ -e ${HOME}/nerd-fonts ]; then
@@ -28,15 +26,7 @@ fi
 echo $(tput setaf 4)Install Rust.$(tput sgr0)
 curl https://sh.rustup.rs -sSf | sh
 echo $(tput setaf 4)Install Rust completed! ✔︎$(tput sgr0)
-
-# Tools installed via cargo
-if ! [ -x "$(command -v rg)"]; then
-  cargo install ripgrep
-fi
-
-# deploy
-cd ${DOT_DIRECTORY}
-./scripts/deploy.sh -none
+source $HOME/.cargo/env
 
 echo $(tput setaf 4)Install daily development toolchains depend on platform.$(tput sgr0)
 if [ "$(uname)" = "Darwin" ]; then
@@ -57,13 +47,16 @@ if [ "$(uname)" = "Darwin" ]; then
   # For shell change
   echo "$(which fish)" | sudo tee -a /etc/shells
 
+elif [ $(uname -r | sed -n 's/.*\( *Microsoft *\).*/\1/ip') ]; then
+  echo $(tput setaf 4)OS is WSL2.$(tput sgr0)
+  sudo apt install ubuntu-wsl
 elif [ "$(expr substr $(uname -s) 1 5)" = "Linux" ]; then
   echo $(tput setaf 4)OS is Linux.$(tput sgr0)
+  sudo apt update
+  # install build-essential
+  sudo apt install build-essential
   # for rcm
-  sudo wget -q https://apt.thoughtbot.com/thoughtbot.gpg.key -O /etc/apt/trusted.gpg.d/thoughtbot.gpg
-  echo "deb https://apt.thoughtbot.com/debian/ stable main" | sudo tee /etc/apt/sources.list.d/thoughtbot.list
-  sudo apt-get update
-  sudo apt-get install rcm
+  sudo apt install rcm
   # For asdf-nodejs
   sudo apt-get install gpg
   sudo apt-get install dirmngr
@@ -87,15 +80,20 @@ elif [ "$(expr substr $(uname -s) 1 5)" = "Linux" ]; then
   echo \
     "deb [arch=amd64 signed-by=/usr/share/keyrings/docker-archive-keyring.gpg] https://download.docker.com/linux/ubuntu \
     $(lsb_release -cs) stable" | sudo tee /etc/apt/sources.list.d/docker.list > /dev/null
-  sudo apt-get update
-  sudo apt-get install docker-ce docker-ce-cli containerd.io
-  sudo groupadd docker
-  sudo usermod -aG docker $USER
-  # For docker-compose
-  sudo curl -L "https://github.com/docker/compose/releases/download/1.29.2/docker-compose-$(uname -s)-$(uname -m)" -o /usr/local/bin/docker-compose
-  sudo chmod +x /usr/local/bin/docker-compose
-
+  sudo apt get update
+  sudo apt install docker-ce docker-ce-cli containerd.io docker-compose-plugin
 fi
+
+# Tools installed via cargo
+if ! [ -x "$(command -v rg)"]; then
+  cargo install ripgrep
+fi
+
+cargo install starship --locked
+
+# deploy
+cd ${DOT_DIRECTORY}
+./scripts/deploy.sh -none
 
 echo $(tput setaf 4)Setup nextdns.$(tput sgr0)
 sh -c 'sh -c "$(curl -sL https://nextdns.io/install)"'
@@ -106,7 +104,7 @@ if [ -e ${HOME}/.asdf ]; then
   echo $(tput setaf 4)Already exists .asdf dir, skip install.$(tput sgr0)
 else
   echo $(tput setaf 4)Install asdf .$(tput sgr0)
-  git clone https://github.com/asdf-vm/asdf.git ~/.asdf --branch v0.9.0
+  git clone https://github.com/asdf-vm/asdf.git ~/.asdf --branch v0.10.0
   echo $(tput setaf 4)Install asdf completed! ✔︎$(tput sgr0)
 fi
 
