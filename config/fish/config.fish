@@ -27,7 +27,6 @@ case Darwin
 case Linux
   if uname -r | sed -n 's/.*\( *Microsoft *\).*/\1/ip';
       # For WSL2
-      set -x BROWSER wslview
     else 
       # For Ubuntu
   end
