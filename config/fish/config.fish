@@ -27,14 +27,13 @@ case Darwin
 case Linux
   if uname -r | sed -n 's/.*\( *Microsoft *\).*/\1/ip';
       # For WSL2
+      set -x ANDROID_HOME $HOME/Android
+      set -x PATH $PATH $ANDROID_HOME/emulator $ANDROID_HOME/tools $ANDROID_HOME/tools/bin $ANDROID_HOME/platform-tools
     else 
       # For Ubuntu
+      set -x ANDROID_HOME $HOME/Android/Sdk
+      set -x PATH ANDROID_HOME $PATH
   end
-  # Linux for private
-  set -x ANDROID_HOME $HOME/Android/Sdk
-  set -x PATH ANDROID_HOME $PATH
-  # eb command
-  set -x PATH $HOME/.ebcli-virtual-env/executables $PATH
 end
 
 set -x PATH $ANDROID_HOME/emulator $PATH
