@@ -2,7 +2,7 @@
 
 set -eu
 echo $(tput setaf 2)initialize dotfiles start!.$(tput sgr0)
-
+echo "${HOME}"
 DOT_DIRECTORY="${HOME}/dotfiles"
 cd ${DOT_DIRECTORY}
 
@@ -11,16 +11,6 @@ cd ${DOT_DIRECTORY}
 # pip3 install --upgrade --user msgpack
 # echo $(tput setaf 4)python packages installed! ✔︎$(tput sgr0)
 
-
-# install nerd fonts
-if [ -e ${HOME}/nerd-fonts ]; then
-  echo $(tput setaf 4)Already exists nerd-fonts dir, skip install.$(tput sgr0)
-else
-  echo $(tput setaf 4)Install nerd fonts.$(tput sgr0)
-  git clone --depth 1 -- https://github.com/ryanoasis/nerd-fonts.git ${HOME}/nerd-fonts
-  ${HOME}/nerd-fonts/install.sh
-  echo $(tput setaf 4)nerd fonts installed! ✔︎$(tput sgr0)
-fi
 
 # install Rust
 echo $(tput setaf 4)Install Rust.$(tput sgr0)
@@ -55,6 +45,7 @@ elif [ "$(expr substr $(uname -s) 1 5)" = "Linux" ]; then
   sudo apt update
   # install build-essential
   sudo apt install build-essential
+  # TODO: grouping and add y option
   # for rcm
   sudo apt install rcm
   # For asdf-nodejs
@@ -65,23 +56,11 @@ elif [ "$(expr substr $(uname -s) 1 5)" = "Linux" ]; then
   sudo apt install fish
   sudo apt install vim
   # For gh
-  curl -fsSL https://cli.github.com/packages/githubcli-archive-keyring.gpg | sudo gpg --dearmor -o /usr/share/keyrings/githubcli-archive-keyring.gpg
-  echo "deb [arch=$(dpkg --print-architecture) signed-by=/usr/share/keyrings/githubcli-archive-keyring.gpg] https://cli.github.com/packages stable main" | sudo tee /etc/apt/sources.list.d/github-cli.list > /dev/null
-  sudo apt-get update
-  sudo apt install gh
-  # For docker
-  sudo apt-get install \
-      apt-transport-https \
-      ca-certificates \
-      curl \
-      gnupg \
-      lsb-release
-  curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo gpg --dearmor -o /usr/share/keyrings/docker-archive-keyring.gpg
-  echo \
-    "deb [arch=amd64 signed-by=/usr/share/keyrings/docker-archive-keyring.gpg] https://download.docker.com/linux/ubuntu \
-    $(lsb_release -cs) stable" | sudo tee /etc/apt/sources.list.d/docker.list > /dev/null
-  sudo apt get update
-  sudo apt install docker-ce docker-ce-cli containerd.io docker-compose-plugin
+  curl -fsSL https://cli.github.com/packages/githubcli-archive-keyring.gpg | sudo dd of=/usr/share/keyrings/githubcli-archive-keyring.gpg \
+  && sudo chmod go+r /usr/share/keyrings/githubcli-archive-keyring.gpg \
+  && echo "deb [arch=$(dpkg --print-architecture) signed-by=/usr/share/keyrings/githubcli-archive-keyring.gpg] https://cli.github.com/packages stable main" | sudo tee /etc/apt/sources.list.d/github-cli.list > /dev/null \
+  && sudo apt update \
+  && sudo apt install gh -y
 fi
 
 # Tools installed via cargo
@@ -92,20 +71,20 @@ fi
 cargo install starship --locked
 
 # deploy
-cd ${DOT_DIRECTORY}
-./scripts/deploy.sh -none
+# cd ${DOT_DIRECTORY}
+# ./scripts/deploy.sh -none
 
-echo $(tput setaf 4)Setup nextdns.$(tput sgr0)
-sh -c 'sh -c "$(curl -sL https://nextdns.io/install)"'
-echo $(tput setaf 4)Setup nextdns end ✔$(tput sgr0)
+# echo $(tput setaf 4)Setup nextdns.$(tput sgr0)
+# sh -c 'sh -c "$(curl -sL https://nextdns.io/install)"'
+# echo $(tput setaf 4)Setup nextdns end ✔$(tput sgr0)
 
-# install asdf
+install asdf
 if [ -e ${HOME}/.asdf ]; then
-  echo $(tput setaf 4)Already exists .asdf dir, skip install.$(tput sgr0)
+ echo $(tput setaf 4)Already exists .asdf dir, skip install.$(tput sgr0)
 else
-  echo $(tput setaf 4)Install asdf .$(tput sgr0)
-  git clone https://github.com/asdf-vm/asdf.git ~/.asdf --branch v0.10.0
-  echo $(tput setaf 4)Install asdf completed! ✔︎$(tput sgr0)
+ echo $(tput setaf 4)Install asdf .$(tput sgr0)
+ git clone https://github.com/asdf-vm/asdf.git ~/.asdf --branch v0.11.3
+ echo $(tput setaf 4)Install asdf completed! ✔︎$(tput sgr0)
 fi
 
 echo $(tput setaf 4)Login shell chainging.$(tput sgr0)
