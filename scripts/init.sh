@@ -62,6 +62,9 @@ elif [ "$(expr substr $(uname -s) 1 5)" = "Linux" ]; then
   sudo apt-get install dirmngr
   # For daily util
   sudo apt install peco
+  # Fish
+  sudo apt-add-repository ppa:fish-shell/release-3
+  sudo apt update
   sudo apt install fish
   sudo apt install vim
   # For gh
