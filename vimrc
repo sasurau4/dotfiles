@@ -147,14 +147,6 @@ let g:lightline = {
 "settings for denite
 "let g:python3_host_prog = expand('/usr/bin/python3')
 
-"settings for NERDTree
-let NERDTreeShowHidden= 1
-autocmd vimenter * NERDTree
-noremap <Space>n :NERDTreeToggle<CR>
-autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
-let g:NERDTreeHighlightCursorline = 0
-let g:NEDTreeLimitedSyntax = 1
-
 "settings for vim-javascript
 let g:javascript_plugin_jsdoc = 1
 
