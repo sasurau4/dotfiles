@@ -71,7 +71,7 @@ if ! [ -x "$(command -v rg)"]; then
   cargo install ripgrep
 fi
 
-cargo install starship --locked
+curl -sS https://starship.rs/install.sh | sh
 
 # deploy
 # cd ${DOT_DIRECTORY}
