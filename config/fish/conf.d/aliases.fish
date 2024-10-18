@@ -67,8 +67,6 @@ alias gcod "git switch (git symbolic-ref refs/remotes/origin/HEAD --short | sed 
 alias gpod "git pull origin (git symbolic-ref refs/remotes/origin/HEAD --short | sed 's/origin\///')"
 alias gpr "gh pr create --web"
 alias grebasei 'git rebase -i (git log -n 1 upstream/master --pretty=format:"%H")'
-alias clang 'clang++-18'
-alias lld-link 'lld-link-18'
 ## Usage gfork sasurau4/profile
 function gfork
   set -l ORIGINAL_TARGET $argv[1]
@@ -103,5 +101,7 @@ case Darwin
   # Lock the screen (when going AFK)
   alias afk '/System/Library/CoreServices/Menu\ Extras/User.menu/Contents/Resources/CGSession -suspend'
 case Linux
+  alias clang 'clang++-18'
+  alias lld-link 'lld-link-18'
 end
 
