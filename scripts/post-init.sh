@@ -28,6 +28,7 @@ asdf global ghq (asdf latest ghq)
 
 asdf plugin add direnv
 asdf install direnv latest
+asdf direnv setup --shell fish --version latest
 asdf global direnv (asdf latest direnv)
 direnv allow
 echo (tput setaf 4)Install asdf and plugins completed! ✔︎(tput sgr0)
