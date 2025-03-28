@@ -39,7 +39,13 @@ if [ "$(uname)" = "Darwin" ]; then
 
 elif [ $(uname -r | sed -n 's/.*\( *Microsoft *\).*/\1/ip') ]; then
   echo $(tput setaf 4)OS is WSL2.$(tput sgr0)
-  sudo apt install ubuntu-wsl
+  curl -fsSL https://cli.github.com/packages/githubcli-archive-keyring.gpg | sudo dd of=/usr/share/keyrings/githubcli-archive-keyring.gpg \
+  && sudo chmod go+r /usr/share/keyrings/githubcli-archive-keyring.gpg \
+  && echo "deb [arch=$(dpkg --print-architecture) signed-by=/usr/share/keyrings/githubcli-archive-keyring.gpg] https://cli.github.com/packages stable main" | sudo tee /etc/apt/sources.list.d/github-cli.list > /dev/null
+  sudo apt-add-repository ppa:fish-shell/release-3
+  sudo add-apt-repository ppa:wslutilities/wslu
+  sudo apt update
+  sudo apt install -y ubuntu-wsl build-essential rcm gpg dirmngr peco fish vim gh unzip wslu
 elif [ "$(expr substr $(uname -s) 1 5)" = "Linux" ]; then
   echo $(tput setaf 4)OS is Linux.$(tput sgr0)
   sudo apt update
@@ -81,12 +87,12 @@ curl -sS https://starship.rs/install.sh | sh
 # sh -c 'sh -c "$(curl -sL https://nextdns.io/install)"'
 # echo $(tput setaf 4)Setup nextdns end ✔$(tput sgr0)
 
-install asdf
+# install asdf
 if [ -e ${HOME}/.asdf ]; then
  echo $(tput setaf 4)Already exists .asdf dir, skip install.$(tput sgr0)
 else
  echo $(tput setaf 4)Install asdf .$(tput sgr0)
- git clone https://github.com/asdf-vm/asdf.git ~/.asdf --branch v0.11.3
+ git clone https://github.com/asdf-vm/asdf.git ~/.asdf --branch v0.14.1
  echo $(tput setaf 4)Install asdf completed! ✔︎$(tput sgr0)
 fi
 

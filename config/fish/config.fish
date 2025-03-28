@@ -29,11 +29,7 @@ case Linux
       # For WSL2
       set -x ANDROID_HOME $HOME/Android
       set -x PATH $PATH $ANDROID_HOME/emulator $ANDROID_HOME/tools $ANDROID_HOME/tools/bin $ANDROID_HOME/platform-tools
-      # for oracle DB
-      set -x PATH /opt/oracle/instantclient_11_2 $PATH
-      set -x SQLPATH /opt/oracle/instantclient_11_2 $SQLPATH
-      set -x NLS_LANG Japanese_Japan.UTF8 $NLS_LANG
-      set -x LD_LIBRARY_PATH /opt/oracle/instantclient_11_2 $LD_LIBRARY_PATH
+      set -x GITHUB_TOKEN (gh auth token)
     else 
       # For Ubuntu
       set -x ANDROID_HOME $HOME/Android/Sdk
