@@ -87,14 +87,8 @@ curl -sS https://starship.rs/install.sh | sh
 # sh -c 'sh -c "$(curl -sL https://nextdns.io/install)"'
 # echo $(tput setaf 4)Setup nextdns end ✔$(tput sgr0)
 
-# install asdf
-if [ -e ${HOME}/.asdf ]; then
- echo $(tput setaf 4)Already exists .asdf dir, skip install.$(tput sgr0)
-else
- echo $(tput setaf 4)Install asdf .$(tput sgr0)
- git clone https://github.com/asdf-vm/asdf.git ~/.asdf --branch v0.14.1
- echo $(tput setaf 4)Install asdf completed! ✔︎$(tput sgr0)
-fi
+# install mise
+curl https://mise.run | sh
 
 echo $(tput setaf 4)Login shell chainging.$(tput sgr0)
 chsh -s $(which fish)

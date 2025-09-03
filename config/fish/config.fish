@@ -1,12 +1,8 @@
 # Starship
 starship init fish | source
 
-# asdf version manager
-source ~/.asdf/asdf.fish
-
-# direnv
-direnv hook fish | source
-# set -x PATH DIRENV_LOG_FORMAT $PATH
+# mise version manager
+$HOME/.local/bin/mise activate fish | source
 
 # Yarn
 set -x PATH ~/.yarn/bin $PATH
