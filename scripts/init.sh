@@ -22,17 +22,10 @@ echo $(tput setaf 4)Install daily development toolchains depend on platform.$(tp
 if [ "$(uname)" = "Darwin" ]; then
   echo $(tput setaf 4)OS is Mac OSX.$(tput sgr0)
   /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
-  brew install gh
-  brew install peco
-  # For asdf-nodejs
-  brew install gpg
-  brew install coreutils
+  brew install gh peco fish jq awscli
   # rcm
   brew tap thoughtbot/formulae
   brew install rcm
-  # fish
-  brew install fish
-  brew install neovim
 
   # For shell change
   echo "$(which fish)" | sudo tee -a /etc/shells
@@ -50,15 +43,7 @@ elif [ "$(expr substr $(uname -s) 1 5)" = "Linux" ]; then
   echo $(tput setaf 4)OS is Linux.$(tput sgr0)
   sudo apt update
   # install build-essential
-  sudo apt install build-essential
-  # TODO: grouping and add y option
-  # for rcm
-  sudo apt install rcm
-  # For asdf-nodejs
-  sudo apt-get install gpg
-  sudo apt-get install dirmngr
-  # For daily util
-  sudo apt install peco
+  sudo apt install -y build-essential rcm gpg dirmngr peco unzip jq
   # Fish
   sudo apt-add-repository ppa:fish-shell/release-3
   sudo apt update
@@ -87,14 +72,8 @@ curl -sS https://starship.rs/install.sh | sh
 # sh -c 'sh -c "$(curl -sL https://nextdns.io/install)"'
 # echo $(tput setaf 4)Setup nextdns end ✔$(tput sgr0)
 
-# install asdf
-if [ -e ${HOME}/.asdf ]; then
- echo $(tput setaf 4)Already exists .asdf dir, skip install.$(tput sgr0)
-else
- echo $(tput setaf 4)Install asdf .$(tput sgr0)
- git clone https://github.com/asdf-vm/asdf.git ~/.asdf --branch v0.14.1
- echo $(tput setaf 4)Install asdf completed! ✔︎$(tput sgr0)
-fi
+# install mise
+curl https://mise.run | sh
 
 echo $(tput setaf 4)Login shell chainging.$(tput sgr0)
 chsh -s $(which fish)

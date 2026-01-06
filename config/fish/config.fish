@@ -1,12 +1,7 @@
 # Starship
 starship init fish | source
 
-# asdf version manager
-source ~/.asdf/asdf.fish
-
-# direnv
-direnv hook fish | source
-# set -x PATH DIRENV_LOG_FORMAT $PATH
+.local/bin/mise activate fish | source
 
 # Yarn
 set -x PATH ~/.yarn/bin $PATH
@@ -21,9 +16,6 @@ case Darwin
   set -x PATH ANDROID_HOME $PATH
   # # for vpnclient
   set -x PATH $HOME/vpnclient $PATH
-  # brew
-  set -x PATH /opt/homebrew/bin $PATH
-  /opt/homebrew/bin/brew shellenv
 case Linux
   if uname -r | sed -n 's/.*\( *Microsoft *\).*/\1/ip';
       # For WSL2
