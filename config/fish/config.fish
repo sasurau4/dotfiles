@@ -1,7 +1,7 @@
 # Starship
 starship init fish | source
 
-.local/bin/mise activate fish | source
+~/.local/bin/mise activate fish | source
 
 # Yarn
 set -x PATH ~/.yarn/bin $PATH
