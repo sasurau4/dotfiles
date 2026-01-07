@@ -15,7 +15,7 @@ echo (tput setaf 4)Setup fisher and fish plugins end ✔(tput sgr0)
 # install asdf
 echo (tput setaf 4)Install tools and plugins.(tput sgr0)
 
-mise install nodejs ghq
+mise install nodejs ghq direnv
 
 echo (tput setaf 4)Install asdf and plugins completed! ✔︎(tput sgr0)
 

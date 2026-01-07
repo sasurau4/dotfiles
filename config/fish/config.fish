@@ -3,6 +3,8 @@ starship init fish | source
 
 ~/.local/bin/mise activate fish | source
 
+direnv hook fish | source
+
 # Yarn
 set -x PATH ~/.yarn/bin $PATH
 

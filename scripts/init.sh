@@ -6,12 +6,6 @@ echo "${HOME}"
 DOT_DIRECTORY="${HOME}/dotfiles"
 cd ${DOT_DIRECTORY}
 
-# install neovim
-# echo $(tput setaf 4)Install python related packages from pip3.$(tput sgr0)
-# pip3 install --upgrade --user msgpack
-# echo $(tput setaf 4)python packages installed! ✔︎$(tput sgr0)
-
-
 # install Rust
 echo $(tput setaf 4)Install Rust.$(tput sgr0)
 curl https://sh.rustup.rs -sSf | sh
