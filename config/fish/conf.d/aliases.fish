@@ -65,8 +65,14 @@ alias gcop "git branch -a | peco | xargs git checkout"
 alias grsoa "git remote set-head origin --auto"
 alias gcod "git switch (git symbolic-ref refs/remotes/origin/HEAD --short | sed 's/origin\///')"
 alias gpod "git pull origin (git symbolic-ref refs/remotes/origin/HEAD --short | sed 's/origin\///')"
-alias gpr "gh pr create --web"
 alias grebasei 'git rebase -i (git log -n 1 upstream/master --pretty=format:"%H")'
+function gpr
+  # first commit of branch
+  set -l title (git log main..HEAD --reverse --format=%s | head -n 1)
+  # latest commit of branch
+  # set -l title (git log -1 --pretty=%s)
+  gh pr create --web --title "$title"
+end
 ## Usage gfork sasurau4/profile
 function gfork
   set -l ORIGINAL_TARGET $argv[1]

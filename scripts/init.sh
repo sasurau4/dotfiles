@@ -6,12 +6,6 @@ echo "${HOME}"
 DOT_DIRECTORY="${HOME}/dotfiles"
 cd ${DOT_DIRECTORY}
 
-# install neovim
-# echo $(tput setaf 4)Install python related packages from pip3.$(tput sgr0)
-# pip3 install --upgrade --user msgpack
-# echo $(tput setaf 4)python packages installed! ✔︎$(tput sgr0)
-
-
 # install Rust
 echo $(tput setaf 4)Install Rust.$(tput sgr0)
 curl https://sh.rustup.rs -sSf | sh
@@ -22,17 +16,10 @@ echo $(tput setaf 4)Install daily development toolchains depend on platform.$(tp
 if [ "$(uname)" = "Darwin" ]; then
   echo $(tput setaf 4)OS is Mac OSX.$(tput sgr0)
   /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
-  brew install gh
-  brew install peco
-  # For asdf-nodejs
-  brew install gpg
-  brew install coreutils
+  brew install gh peco fish jq awscli
   # rcm
   brew tap thoughtbot/formulae
   brew install rcm
-  # fish
-  brew install fish
-  brew install neovim
 
   # For shell change
   echo "$(which fish)" | sudo tee -a /etc/shells
@@ -50,15 +37,7 @@ elif [ "$(expr substr $(uname -s) 1 5)" = "Linux" ]; then
   echo $(tput setaf 4)OS is Linux.$(tput sgr0)
   sudo apt update
   # install build-essential
-  sudo apt install build-essential
-  # TODO: grouping and add y option
-  # for rcm
-  sudo apt install rcm
-  # For asdf-nodejs
-  sudo apt-get install gpg
-  sudo apt-get install dirmngr
-  # For daily util
-  sudo apt install peco
+  sudo apt install -y build-essential rcm gpg dirmngr peco unzip jq
   # Fish
   sudo apt-add-repository ppa:fish-shell/release-3
   sudo apt update

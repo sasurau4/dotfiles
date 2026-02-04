@@ -1,8 +1,9 @@
 # Starship
 starship init fish | source
 
-# mise version manager
-$HOME/.local/bin/mise activate fish | source
+~/.local/bin/mise activate fish | source
+
+direnv hook fish | source
 
 # Yarn
 set -x PATH ~/.yarn/bin $PATH
@@ -17,9 +18,6 @@ case Darwin
   set -x PATH ANDROID_HOME $PATH
   # # for vpnclient
   set -x PATH $HOME/vpnclient $PATH
-  # brew
-  set -x PATH /opt/homebrew/bin $PATH
-  /opt/homebrew/bin/brew shellenv
 case Linux
   if uname -r | sed -n 's/.*\( *Microsoft *\).*/\1/ip';
       # For WSL2
