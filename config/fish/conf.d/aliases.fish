@@ -67,8 +67,9 @@ alias gcod "git switch (git symbolic-ref refs/remotes/origin/HEAD --short | sed 
 alias gpod "git pull origin (git symbolic-ref refs/remotes/origin/HEAD --short | sed 's/origin\///')"
 alias grebasei 'git rebase -i (git log -n 1 upstream/master --pretty=format:"%H")'
 function gpr
+  set -l default_branch (gh repo view --json defaultBranchRef --template '{{.defaultBranchRef.name}}')
   # first commit of branch
-  set -l title (git log main..HEAD --reverse --format=%s | head -n 1)
+  set -l title (git log $default_branch..HEAD --reverse --format=%s | head -n 1)
   # latest commit of branch
   # set -l title (git log -1 --pretty=%s)
   gh pr create --web --title "$title"
