@@ -1,3 +1,10 @@
+# For vscode remote ssh
+if not status is-interactive
+  fish_add_path /opt/homebrew/bin
+  fish_add_path /usr/local/bin
+  return
+end
+
 # Starship
 starship init fish | source
 
