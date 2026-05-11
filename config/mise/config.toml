@@ -1,0 +1,15 @@
+[settings]
+idiomatic_version_file_enable_tools = ["ruby", "terraform"]
+
+[settings.ruby]
+compile = false
+
+[settings.python]
+compile = false
+
+[tools]
+direnv = "latest"
+node = "24"
+"github:mizchi/actrun" = "latest"
+"github:suzuki-shunsuke/pinact" = "latest"
+"dprint" = "latest"
