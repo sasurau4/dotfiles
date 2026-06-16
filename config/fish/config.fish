@@ -25,6 +25,9 @@ case Darwin
   set -x PATH ANDROID_HOME $PATH
   # # for vpnclient
   set -x PATH $HOME/vpnclient $PATH
+  # For launcher-desktop
+  set -x PATH $HOME/.rd/bin $PATH
+
 case Linux
   if uname -r | sed -n 's/.*\( *Microsoft *\).*/\1/ip';
       # For WSL2
