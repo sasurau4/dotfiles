@@ -2,3 +2,5 @@
 .tool-versions
 .envrc
 AzuriteConfig
+**/.claude/settings.local.json
+__pycache__
